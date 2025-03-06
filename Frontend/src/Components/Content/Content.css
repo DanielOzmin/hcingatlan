@@ -1,0 +1,27 @@
+/* Konténer az egész tartalomhoz */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Kártyák konténere (Grid layout 3 oszloppal) */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 oszlop ha van hely */
+    gap: 20px; /* Térköz a kártyák között */
+    margin-top: 20px;
+}
+
+/* Reszponzív beállítás: Ha a képernyő kisebb, max 2 vagy 1 oszlop legyen */
+@media (max-width: 900px) {
+    .cards-container {
+        grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Kisebb képernyőn 2 oszlop */
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: repeat(1, minmax(300px, 1fr)); /* Mobil nézetben 1 oszlop */
+    }
+}

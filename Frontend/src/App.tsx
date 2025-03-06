@@ -8,48 +8,62 @@ import AboutUs from "./Routes/About_Us"
 import Contact from "./Routes/Contact"
 import Reviews from "./Routes/Reviews"
 import Careers from "./Routes/Careers"
+import PropertyDetails from "./Routes/PropertyDetails"
+import Footer from "./Components/Footer/Footer"
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeScreen/>
+    element: <HomeScreen />
   },
   {
     path: "/properties",
-    element: <Properties/>
+    element: <Properties />,
+    children: [
+      {
+        path: ":details/:id",
+        element: <PropertyDetails />
+      }
+    ]
   },
   {
     path: "/team",
-    element: <Team/>
+    element: <Team />
   },
   {
     path: "/gallery",
-    element: <Gallery/>
+    element: <Gallery />
   },
   {
     path: "/about-us",
-    element: <AboutUs/>
+    element: <AboutUs />
   },
   {
     path: "/contact",
-    element: <Contact/>
+    element: <Contact />
   },
   {
     path: "/reviews",
-    element: <Reviews/>
+    element: <Reviews />
   },
   {
     path: "/careers",
-    element: <Careers/>
+    element: <Careers />
   },
 ])
 
 function App() {
-  
+
 
   return (
-    <RouterProvider router={router}/>
+    <div className="app-container">
+      <div className="main-content">
+        <RouterProvider router={router} />
+      </div>
+      <Footer />
+    </div>
+
   )
 }
 

@@ -1,0 +1,18 @@
+.highlight-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: url('/home-back-1.jpg') no-repeat center top;
+    background-size: cover;
+    display: flex;
+    overflow: hidden;
+}
+
+.highlight-text {
+    position: absolute;
+    top: 15%;
+    margin-left: 100px;
+    color: white;
+    font-size: 42px;
+    font-weight: bold;
+}

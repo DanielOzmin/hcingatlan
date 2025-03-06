@@ -1,4 +1,21 @@
-.content-container{
-  margin-top: 260px;
-  text-align: center;
+html, body {
+  height: 100%;
+  margin: 0;
 }
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Legalább a teljes képernyő magasságát kitölti */
+}
+
+.main-content {
+  flex: 1; /* Kitölti a rendelkezésre álló helyet */
+}
+
+.footer-container {
+  background: #222;
+  color: white;
+  padding: 20px;
+}
+

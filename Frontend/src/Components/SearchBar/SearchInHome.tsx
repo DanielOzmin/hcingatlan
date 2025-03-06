@@ -66,7 +66,7 @@ const SearchInHome = () => {
     }
 
     const handleClick=()=>{
-        console.log(search)
+       alert("u are searching")
     }
 
     return (

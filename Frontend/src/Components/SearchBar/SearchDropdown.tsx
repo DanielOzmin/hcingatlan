@@ -9,7 +9,7 @@ type Props = {
 }
 
 const SearchDropdown=({ options, selectedValues, setSelectedValues, hasInput }: Props) => {
-    const [customInput, setCustomInput] = useState<string>("")
+    const [customInput, setCustomInput] = useState<string | undefined>(undefined)
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const toggleOption = (option: string) => {
@@ -20,12 +20,7 @@ const SearchDropdown=({ options, selectedValues, setSelectedValues, hasInput }: 
         )
     }
 
-    const addCustomOption = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter" && customInput.trim() !== "" && !options.includes(customInput)) {
-            setSelectedValues([...selectedValues, customInput])
-            setCustomInput("")
-        }
-    }
+    const filteredOptions = customInput === undefined ? options : options.filter((option)=> option.toLowerCase().includes(customInput.toLowerCase()))
 
     return (
         <div className="dropdown-container">
@@ -42,10 +37,9 @@ const SearchDropdown=({ options, selectedValues, setSelectedValues, hasInput }: 
                                 placeholder="Add custom option..."
                                 value={customInput}
                                 onChange={(e) => setCustomInput(e.target.value)}
-                                onKeyDown={addCustomOption} 
                             />
                         </div>} 
-                        {options.map((option, index) => (
+                        {filteredOptions.map((option, index) => (
                             <div key={index} className="dropdown-item" onClick={() => toggleOption(option)}>
                             <span className="option-text">{option}</span>
                             {selectedValues.includes(option) && <span className="checkmark">✔</span>}

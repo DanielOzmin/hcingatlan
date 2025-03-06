@@ -6,6 +6,7 @@ const Properties = () => {
         <div className="content-container">
             <h1>Properties</h1>
         </div>
+        
         </>)
 }
 

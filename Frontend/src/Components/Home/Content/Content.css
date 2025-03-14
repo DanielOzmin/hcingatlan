@@ -1,6 +1,6 @@
 /* Konténer az egész tartalomhoz */
 .content-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     text-align: center;
 }
@@ -8,7 +8,7 @@
 /* Kártyák konténere (Grid layout 3 oszloppal) */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 oszlop ha van hely */
+    grid-template-columns: repeat(3, 1fr); /* 3 oszlop ha van hely */
     gap: 20px; /* Térköz a kártyák között */
     margin-top: 20px;
 }

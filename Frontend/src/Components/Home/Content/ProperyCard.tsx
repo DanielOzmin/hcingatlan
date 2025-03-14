@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
 import "./PropertyCard.css"
-import { Property } from "../../dummyData"
+import { Property } from "../../../dummyData"
 
 type Props = {
     property: Property
@@ -36,7 +36,7 @@ const PropertyCard = ({ property }: Props) => {
             <p>{propertyDescritpion}</p>
             <div className="price-type-container">
                 <div className="price-container">
-                    <span className="price">{property.price} Ft</span>
+                    <span className="price">{property.price}</span><span className="currency"> Ft</span>
                 </div>
                 <span className="property-type">{property.propertyType}</span>
             </div>

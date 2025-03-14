@@ -1,6 +1,6 @@
 import PropertyCard from "./ProperyCard"
 import "./Content.css"
-import properties from "../../dummyData"
+import properties from "../../../dummyData"
 
 const Content = () => {
 return(

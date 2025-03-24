@@ -32,8 +32,50 @@
     font-size: 14px;
     color: #333;
 }
+
+/* Properties kereső egyedi css-e*/
+.search-style {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.search-style label {
+    font-size: 18px;
+    width: 100%;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 4px;
+}
+
+.search-style input {
+    width: 50px;
+    height: 30px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 🔹 Távolság az inputok között */
+.search-style input:first-of-type {
+    margin-bottom: 10px;
+}
+
+/* 🔹 Mértékegység (ha van) */
+.search-style span {
+    font-size: 18px;
+    color: black;
+}
+
+/* 🔹 Input fókusz kiemelés */
+.search-style input:focus {
+    border-color: #d1a430;
+    outline: none;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}  
+}

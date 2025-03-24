@@ -17,17 +17,18 @@ type Props ={
     label: string,
     fieldKeys: [keyof Search,keyof Search],
     setSearch: React.Dispatch<React.SetStateAction<Search>>,
-    unitOfMeasurement?: string 
+    unitOfMeasurement?: string,
+    variant?: "deafault" | "properties" 
 }
 
-const MinMaxInput=({label, fieldKeys, setSearch ,unitOfMeasurement} : Props)=>{
+const MinMaxInput=({label, fieldKeys, setSearch ,unitOfMeasurement, variant} : Props)=>{
 
     const handleChange = (key: keyof Search, value: number) => {
         setSearch((prev)=>({...prev, [key]: value}))
     }
 
     return(
-        <div className="input-container">
+        <div className={`${variant === "properties" ? "search-style" : "input-container" }`}>
             <label>{label}: </label>
             <input type="number" placeholder="min" onChange={(e)=>handleChange(fieldKeys[0], Number(e.target.value))}/> 
             <span> - </span>

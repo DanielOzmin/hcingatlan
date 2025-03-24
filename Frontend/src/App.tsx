@@ -12,6 +12,7 @@ import Careers from "./Routes/Careers"
 import PropertyDetails from "./Routes/PropertyDetails"
 import Footer from "./Components/Footer/Footer"
 import i18n from "./i18n"
+import CustomerPage from "./Routes/CustomerPage";
 
 
 
@@ -35,8 +36,14 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/team",
-    element: <Team />
+    path: "/team/",
+    element: <Team />,
+    children: [
+      {
+        path: ":customer/:id",
+        element: <CustomerPage/>,
+    },
+  ]
   },
   {
     path: "/gallery",

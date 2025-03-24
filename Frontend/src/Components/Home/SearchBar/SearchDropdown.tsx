@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./SearchDropdown.css"
 
 type Props = {
     options: string[],
     selectedValues: string[],
-    setSelectedValues: (values: string[]) => void
+    setSelectedValues: (values: string[]) => void 
     hasInput?: boolean
 }
 
@@ -19,6 +19,8 @@ const SearchDropdown=({ options, selectedValues, setSelectedValues, hasInput }: 
                 : [...selectedValues, option]
         )
     }
+
+ 
 
     const filteredOptions = customInput === undefined ? options : options.filter((option)=> option.toLowerCase().includes(customInput.toLowerCase()))
 

@@ -8,6 +8,7 @@ import CustomerCard from "../Components/Customer/CustomerCard"
 
 
 
+
 const PropertyDetails = () => {
     const { id } = useParams<{ id: string }>()
 

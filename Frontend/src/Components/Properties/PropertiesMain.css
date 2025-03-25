@@ -1,4 +1,7 @@
-.properties-main-container{
+.properties-main-container {
     display: flex;
     width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    gap: 20px; 
 }

@@ -33,7 +33,6 @@
     color: #333;
 }
 
-/* Properties kereső egyedi css-e*/
 .search-style {
     display: flex;
     flex-wrap: wrap;
@@ -57,18 +56,15 @@
     font-size: 14px;
 }
 
-/* 🔹 Távolság az inputok között */
 .search-style input:first-of-type {
     margin-bottom: 10px;
 }
 
-/* 🔹 Mértékegység (ha van) */
 .search-style span {
     font-size: 18px;
     color: black;
 }
 
-/* 🔹 Input fókusz kiemelés */
 .search-style input:focus {
     border-color: #d1a430;
     outline: none;

@@ -2,6 +2,7 @@ import { useState } from "react"
 import MinMaxInput from "./MinMaxInput"
 import SearchDropdown from "./SearchDropdown"
 import "./SearchInHome.css"
+import properties from "../../../dummyData"
 
 const homeTypes: string[] = ["Apartman", "House", "Land", "Rental space"]
 const loans: string[] = ["CSOK PLUS: No","CSOK PLUS: Yes"]
@@ -125,7 +126,7 @@ const SearchInHome = () => {
                     label="Room number" 
                     fieldKeys={["minRoomNumber","maxRoomNumber"]} 
                     setSearch={setSearch} />
-                <button className="search-btn" onClick={handleClick}>Keresés (60)</button>
+                <button className="search-btn" onClick={handleClick}>Search ({properties.length})</button>
             </div>
         </div>
     )

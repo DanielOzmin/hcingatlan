@@ -1,5 +1,8 @@
 .filter-container{
-    border: 1px solid black;
-    width: 400px;
-    height: 1000px;
+    width: 300px; 
+    height: auto; 
+    border: none; 
+    background-color: #f8f8f8; 
+    padding: 15px;
+    border-radius: 8px;
 }

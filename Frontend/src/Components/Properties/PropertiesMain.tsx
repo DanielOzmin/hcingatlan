@@ -7,7 +7,6 @@ const PropertiesMain = () => {
     <div className="properties-main-container">
         <PropertiesSearchBar/>
         <PropertiesList/>
-        
     </div>
     )
 }

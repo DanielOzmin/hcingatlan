@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 
 import "./PropertyCard.css"
 import { Property } from "../../../dummyData"
+import { formatNumber } from "../../../Utils/format"
 
 type Props = {
     property: Property
@@ -19,7 +20,7 @@ const PropertyCard = ({ property }: Props) => {
         navigate(`/properties/${city}-${district}-${propertyType}-${street}/${id}`)
     }
     return (
-        <div className="property-card" onClick={() => handleClick(property.id, property.city, property.district, property.propertyType, property.street)}>
+        <div className="property-card">
             <div className="img-container">
                 <img src="/Testpic.jpg" alt="property-img" />
                 <span className="status">
@@ -30,13 +31,13 @@ const PropertyCard = ({ property }: Props) => {
                     {property.img?.length}
                 </span>
             </div>
-            <div className="property-details">
+            <div className="property-details" onClick={() => handleClick(property.id, property.city, property.district, property.propertyType, property.street)}>
                 <h3>{property.city} {property.district} (Albertfalva), {property.street}</h3>
             </div>
             <p>{propertyDescritpion}</p>
             <div className="price-type-container">
                 <div className="price-container">
-                    <span className="price">{property.price}</span><span className="currency"> Ft</span>
+                    <span className="price">{formatNumber(property.price)}</span><span className="currency"> Ft</span>
                 </div>
                 <span className="property-type">{property.propertyType}</span>
             </div>

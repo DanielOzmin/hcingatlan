@@ -1,0 +1,100 @@
+.property-list-item {
+    display: flex;
+    gap: 15px;
+    border: 1px solid #ddd;
+    width: 900px;
+    padding: 5px;
+}
+
+.property-list-item:hover{
+    transform: scale(1.02);
+}
+
+.property-list-item img {
+    width: 320px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.property-list-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.property-list-header {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+}
+.property-list-header:hover{
+    color:#d3b325;
+    cursor: pointer;
+}
+
+.property-list-type-price-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.property-list-type {
+    font-size: 14px;
+    color: #666;
+}
+
+.price-list-container {
+    display: inline-flex;
+    align-items:center;
+    height: 49px;
+    color: white;
+    background: #d3b325;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.price-list{
+    padding: 10px;
+
+}
+.currency-list{
+    background-color: #b49900;
+    padding: 10px;
+}
+
+.property-list-features {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    margin-top: 8px;
+    background-color: #f9f9f9;
+}
+
+.property-list-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.feature-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+}
+
+.feature-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+}
+
+.favorite-icon {
+    font-size: 24px;
+    cursor: pointer;
+}

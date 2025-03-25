@@ -1,0 +1,20 @@
+.filter {
+    appearance: none; 
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    width: 120px;
+    font-weight: bold;
+}
+
+.filter:focus {
+    border-color: #d3b325;
+    outline: none;
+}
+
+

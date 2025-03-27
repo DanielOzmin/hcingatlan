@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import "./SearchDropdown.css"
 
 type Props = {
     options: string[],
     selectedValues: string[],
-    setSelectedValues: (values: string[]) => void 
-    hasInput?: boolean
+    setSelectedValues: (values: string[]) => void, 
+    hasInput?: boolean,
 }
 
 const SearchDropdown=({ options, selectedValues, setSelectedValues, hasInput }: Props) => {

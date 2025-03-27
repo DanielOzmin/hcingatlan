@@ -95,7 +95,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "1",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-22T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -148,7 +148,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "2",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-20T13:50:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -201,7 +201,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "3",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-16T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -254,7 +254,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "4",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-21T21:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -307,7 +307,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "5",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-20T08:55:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -360,7 +360,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "6",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-02-20T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -413,7 +413,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "7",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-22T02:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -467,7 +467,7 @@ const properties: Property[] = [
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     },
     {
-        id: "1237",
+        id: "8",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-11T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -520,7 +520,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "9",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-14T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -573,7 +573,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "10",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-19T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -626,7 +626,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "11",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-22T06:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -679,7 +679,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "12",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-17T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -732,7 +732,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "13",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-20T14:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -785,7 +785,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "14",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-19T18:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -838,7 +838,7 @@ const properties: Property[] = [
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
-        id: "1237",
+        id: "15",
         propertyId: "1-5-012",
         uploadDate: new Date("2024-03-20T08:110:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!

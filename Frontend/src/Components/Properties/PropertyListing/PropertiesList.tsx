@@ -1,6 +1,6 @@
 import "./PropertiesList.css"
-import properties, { Property } from "../../dummyData"
-import PropertyCard from "../Home/Content/ProperyCard"
+import properties, { Property } from "../../../dummyData"
+import PropertyCard from "../../Home/Content/ProperyCard"
 import Pagination from "./Pagination"
 import { useEffect, useState } from "react"
 import { FaTh, FaList } from "react-icons/fa"
@@ -35,24 +35,11 @@ const PropertiesList = () => {
                 default:
                     return    
             }
-            setCurrent(sortedCurrent)
-            
+            setCurrent(sortedCurrent) 
         }
-
-        sortCurrent()
-        console.log(orderBy)
-        
-        
+        sortCurrent() 
     },[orderBy,properties])
 
-    
-
-    const handleListClick = () => {
-        setView("list")
-    }
-    const handleGridClick = () => {
-        setView("grid")
-    }
 
     return (
         <div className="list-container">
@@ -64,8 +51,8 @@ const PropertiesList = () => {
                     <div>Order by: 
                         <FilterDropdown setOrderBy={setOrderBy}/>
                     </div>
-                    <FaTh size={24} className="grid-icon" onClick={handleGridClick} />
-                    <FaList size={24} className="list-icon" onClick={handleListClick} />
+                    <FaTh size={24} className="grid-icon" onClick={()=>setView("grid")} />
+                    <FaList size={24} className="list-icon" onClick={()=>setView("list")} />
                 </div>
             </div>
 

@@ -1,8 +1,8 @@
 import "./PropertyCardList.css"
 import { useNavigate } from "react-router-dom"
 
-import { Property } from "../../dummyData"
-import { formatNumber } from "../../Utils/format"
+import { Property } from "../../../dummyData"
+import { formatNumber } from "../../../Services/format"
 
 type Props = {
     property: Property
@@ -17,6 +17,11 @@ const PropertyCardList = ({property}:Props) => {
             property.description
 
     const handleCardClick=(id: string, city: string, district: string, propertyType: string, street: string)=>{
+        const storeId = localStorage.getItem("lastSeen")
+        const seen = storeId ? JSON.parse(storeId) : []
+
+        const savePropertyId = [property.id, ...seen.filter((id: string) => id !== property.id).slice(0, 10)]
+        localStorage.setItem("lastSeen", JSON.stringify(savePropertyId))
         navigate(`/properties/${city}-${district}-${propertyType}-${street}/${id}`)
     }    
 

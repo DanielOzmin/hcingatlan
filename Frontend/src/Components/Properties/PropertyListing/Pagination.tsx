@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Property } from "../../dummyData"
+import { Property } from "../../../dummyData"
 
 import "./Pagination.css"
 

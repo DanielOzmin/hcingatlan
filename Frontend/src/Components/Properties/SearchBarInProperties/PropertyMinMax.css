@@ -1,0 +1,39 @@
+.property-minmax-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.property-label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.property-minmax-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.property-minmax-inputs input {
+    width: 80px;
+    height: 35px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.property-minmax-inputs span {
+    font-size: 16px;
+}
+
+.unit {
+    font-weight: bold;
+    color: #555;
+}

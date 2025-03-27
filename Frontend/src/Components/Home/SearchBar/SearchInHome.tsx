@@ -5,7 +5,7 @@ import "./SearchInHome.css"
 import properties from "../../../dummyData"
 
 const homeTypes: string[] = ["Apartman", "House", "Land", "Rental space"]
-const loans: string[] = ["CSOK PLUS: No","CSOK PLUS: Yes"]
+const loans: string[] = ["CSOK PLUS: No", "CSOK PLUS: Yes"]
 const locations: string[] = [
     "1st District – I",
     "2nd District – II",
@@ -44,11 +44,12 @@ type Search = {
     minFloorArea: number | null,
     maxFloorArea: number | null,
     minRoomNumber: number | null,
-    maxRoomNumber: number | null
+    maxRoomNumber: number | null,
+    buildType: string,
 }
 
 const SearchInHome = () => {
-    const [search, setSearch ] = useState<Search>({
+    const [search, setSearch] = useState<Search>({
         selectedCategory: "",
         selectedType: [],
         location: [],
@@ -59,30 +60,32 @@ const SearchInHome = () => {
         minFloorArea: null,
         maxFloorArea: null,
         minRoomNumber: null,
-        maxRoomNumber: null
+        maxRoomNumber: null,
+        buildType: ""
     })
 
-    const handleChange = (key: keyof Search, value: string) =>{
-        setSearch((prev)=>({...prev,[key]: value}))
+    const handleChange = (key: keyof Search, value: string) => {
+        setSearch((prev) => ({ ...prev, [key]: value }))
     }
 
-    const handleClick=()=>{
-       alert("u are searching")
+    const handleClick = () => {
+        console.log(search)
+        alert("u are searching")
     }
 
     return (
         <div className="search-container">
             <div className="upper-row">
                 <div className="sale-rent-button">
-                <button
+                    <button
                         className={`sale-btn ${search.selectedCategory === "Sale" ? "active" : ""}`}
-                        onClick={() => handleChange("selectedCategory","Sale")}
+                        onClick={() => handleChange("selectedCategory", "Sale")}
                     >
                         Sale
                     </button>
                     <button
                         className={`rent-btn ${search.selectedCategory === "Rent" ? "active" : ""}`}
-                        onClick={() => handleChange("selectedCategory","Rent")}
+                        onClick={() => handleChange("selectedCategory", "Rent")}
                     >
                         Rent
                     </button>
@@ -104,27 +107,27 @@ const SearchInHome = () => {
                     setSelectedValues={(values) => setSearch({ ...search, loan: values })}
                 />
                 <div>
-                <input 
-                    type="text" 
-                    className="input-dropdown listing-input"
-                    placeholder="Listing ID" 
-                    value={search.typedId} 
-                    onChange={(e)=>handleChange("typedId",e.target.value)} />
+                    <input
+                        type="text"
+                        className="input-dropdown listing-input"
+                        placeholder="Listing ID"
+                        value={search.typedId}
+                        onChange={(e) => handleChange("typedId", e.target.value)} />
                 </div>
             </div>
             <div className="lower-row">
-                <MinMaxInput 
-                    label="Price" 
-                    fieldKeys={["minPrice","maxPrice"]} 
+                <MinMaxInput
+                    label="Price"
+                    fieldKeys={["minPrice", "maxPrice"]}
                     setSearch={setSearch} unitOfMeasurement={search.selectedCategory == "Sale" ? "M Huf" : "E Huf"} />
-                <MinMaxInput 
-                    label="Floor area" 
-                    fieldKeys={["minFloorArea","maxFloorArea"]} 
-                    setSearch={setSearch} 
+                <MinMaxInput
+                    label="Floor area"
+                    fieldKeys={["minFloorArea", "maxFloorArea"]}
+                    setSearch={setSearch}
                     unitOfMeasurement="m²" />
-                <MinMaxInput 
-                    label="Room number" 
-                    fieldKeys={["minRoomNumber","maxRoomNumber"]} 
+                <MinMaxInput
+                    label="Room number"
+                    fieldKeys={["minRoomNumber", "maxRoomNumber"]}
                     setSearch={setSearch} />
                 <button className="search-btn" onClick={handleClick}>Search ({properties.length})</button>
             </div>

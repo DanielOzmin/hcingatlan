@@ -1,0 +1,50 @@
+.lastseen-properties-container {
+    width: 300px;
+    height: auto;
+    border: none;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.last-seen-card {
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.last-seen-card img {
+    width: 120px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.last-seen-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.last-seen-info h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.last-seen-info:hover{
+    transform: scale(1.04);
+    color:#d3b325;
+    cursor: pointer;
+}
+
+.last-seen-info p {
+    margin: 3px 0 0 0;
+    color: #666;
+}

@@ -1,0 +1,68 @@
+.agent-card-container {
+    max-width: 1400px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 40px 40px;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+  }
+  
+  .agent-card-header {
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+  }
+  
+  .agent-card-header img {
+    width: 330px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  
+  .agent-card-header-info h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .agent-card-header-info p {
+    font-size: 16px;
+    color: #666;
+    
+  }
+  
+  .team-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  
+  .team-card-info label {
+    font-weight: 600;
+    color: #222;
+    margin-right: 10px;
+  }
+  
+  .team-card-info span {
+    color: #333;
+  }
+  .agent-description-title{
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 20px;;
+  }
+  
+  .agent-description {
+    margin-top: 35px;
+    line-height: 1.7;
+    color: #333;
+    font-size: 20px;
+  }
+  
+  

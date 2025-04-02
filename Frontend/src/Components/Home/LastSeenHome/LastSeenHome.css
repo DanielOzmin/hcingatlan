@@ -1,0 +1,68 @@
+.last-seen-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.last-seen-home h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.last-seen-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.last-seen-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.last-seen-cards {
+    display: flex;
+    gap: 16px;
+    overflow: hidden;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.nav-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background-color: #f4cd5f;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease;
+}
+
+.nav-button:hover {
+    background-color: #fae48c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.nav-button.left {
+    left: -20px;
+}
+
+.nav-button.right {
+    right: -20px;
+}

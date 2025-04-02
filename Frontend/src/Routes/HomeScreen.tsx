@@ -6,6 +6,7 @@ import Slider from "../Components/Home/Slider/Slider"
 import SearchInHome from "../Components/Home/SearchBar/SearchInHome"
 import Content from "../Components/Home/Content/Content"
 import PropertyHighLight from "../Components/Home/Highlights/PropertyHighLight"
+import LastSeenHome from "../Components/Home/LastSeenHome/LastSeenHome"
 
 
 const HomeScreen = () => {
@@ -25,6 +26,9 @@ const HomeScreen = () => {
             </div>
             <div>
                 <PropertyHighLight/>
+            </div>
+            <div>
+                <LastSeenHome/>
             </div>
         </>
 

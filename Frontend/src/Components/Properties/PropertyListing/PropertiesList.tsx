@@ -6,46 +6,53 @@ import { useEffect, useState } from "react"
 import { FaTh, FaList } from "react-icons/fa"
 import PropertyCardList from "./PropertyCardList"
 import FilterDropdown from "./FilterDropdown"
+import { useParams } from "react-router-dom"
 
 
 type View = "grid" | "list"
 type OrderBy = "dateUp" |  "dateDown" | "priceUp" | "priceDown"
+type Props = {
+  Id?: string
+}
 
-const PropertiesList = () => {
+const PropertiesList = ({Id}: Props) => {
     const [current, setCurrent] = useState<Property[]>([])
     const [view, setView] = useState<View>("grid")
     const [orderBy, setOrderBy] = useState<OrderBy>("dateUp")
+    const params = useParams<{customerId: string}>()
+    const customerId = Id ?? params.customerId
 
-    useEffect(()=>{
-        const sortCurrent = () => {
-            let sortedCurrent: Property[] = [...properties]
-            switch(orderBy){
-                case "dateUp":
-                    sortedCurrent.sort((a,b)=> a.uploadDate.getTime() - b.uploadDate.getTime())
-                    break;
-                case "dateDown":
-                    sortedCurrent.sort((a,b)=> b.uploadDate.getTime() - a.uploadDate.getTime())
-                    break;
-                case "priceDown":
-                    sortedCurrent.sort((a,b)=> b.price - a.price)
-                    break;
-                case "priceUp":
-                    sortedCurrent.sort((a,b)=> a.price - b.price)
-                    break;
-                default:
-                    return    
-            }
-            setCurrent(sortedCurrent) 
+    useEffect(() => {
+        let filtered = properties
+      
+        if (customerId) {
+          filtered = filtered.filter(p => p.customerId === customerId)
         }
-        sortCurrent() 
-    },[orderBy,properties])
+      
+        switch (orderBy) {
+          case "dateUp":
+            filtered.sort((a, b) => a.uploadDate.getTime() - b.uploadDate.getTime())
+            break;
+          case "dateDown":
+            filtered.sort((a, b) => b.uploadDate.getTime() - a.uploadDate.getTime())
+            break;
+          case "priceDown":
+            filtered.sort((a, b) => b.price - a.price)
+            break;
+          case "priceUp":
+            filtered.sort((a, b) => a.price - b.price)
+            break;
+        }
+      
+        setCurrent(filtered)
+      }, [orderBy, properties, customerId])
 
 
     return (
         <div className="list-container">
             <div className="list-header">
                 <div>
-                    <h1>Properties: {properties.length} found.</h1>
+                    <h1>Properties: {current.length} found.</h1>
                 </div>
                 <div className="list-filters">
                     <div>Order by: 

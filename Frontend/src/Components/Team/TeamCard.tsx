@@ -14,6 +14,10 @@ const TeamCard = ({customer}: Props) => {
         navigate(`/team/${name}/${id}`)
     }
 
+    const handlePropertiesClick = (customerId: string) => {
+        navigate(`/properties/${customerId}`)
+    }
+
     return (
         <div className="team-card-container">
             <div>
@@ -34,7 +38,7 @@ const TeamCard = ({customer}: Props) => {
                 </div>
                 <div className="team-card-buttons">
                     <button className="team-card-introducing-button" onClick={()=>handleIntoduceClick(customer.id,customer.name)}>Introducing</button>
-                    <button className="team-card-properties-button">Properties ({customer.properties?.length})</button>
+                    <button className="team-card-properties-button" onClick={()=>handlePropertiesClick(customer.id)}>Properties ({customer.properties?.length})</button>
                 </div>
 
             </div>

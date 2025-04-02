@@ -38,11 +38,14 @@ export type Property = {
     parking: string,
     extras: string[]
     uploadDate: Date,
+    featured?: boolean,
+    customerId: string,
     img?: string[]
 }
 const properties: Property[] = [
     {
         id: "1237",
+        customerId: "2",
         uploadDate: new Date("2024-03-20T08:00:00Z"),
         propertyId: "1-5-012",
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -92,11 +95,13 @@ const properties: Property[] = [
         entrance: "from the cuntryard",
         view: "countryard view",
         parking: "on street",
+        featured: true,
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
         id: "1",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-22T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -144,12 +149,14 @@ const properties: Property[] = [
         gardenAccess: "no",
         entrance: "from the cuntryard",
         view: "countryard view",
+        featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
         id: "2",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-20T13:50:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -197,12 +204,14 @@ const properties: Property[] = [
         gardenAccess: "no",
         entrance: "from the cuntryard",
         view: "countryard view",
+        featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
         id: "3",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-16T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -250,12 +259,14 @@ const properties: Property[] = [
         gardenAccess: "no",
         entrance: "from the cuntryard",
         view: "countryard view",
+        featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
         id: "4",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-21T21:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -304,11 +315,13 @@ const properties: Property[] = [
         entrance: "from the cuntryard",
         view: "countryard view",
         parking: "on street",
+        featured: true,
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
         id: "5",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-20T08:55:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -356,12 +369,14 @@ const properties: Property[] = [
         gardenAccess: "no",
         entrance: "from the cuntryard",
         view: "countryard view",
+        featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
         id: "6",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-02-20T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -410,11 +425,13 @@ const properties: Property[] = [
         entrance: "from the cuntryard",
         view: "countryard view",
         parking: "on street",
+        featured: true,
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
     }, {
         id: "7",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-22T02:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -462,6 +479,7 @@ const properties: Property[] = [
         gardenAccess: "no",
         entrance: "from the cuntryard",
         view: "countryard view",
+        featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
         img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
@@ -469,6 +487,7 @@ const properties: Property[] = [
     {
         id: "8",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-11T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -522,6 +541,7 @@ const properties: Property[] = [
     }, {
         id: "9",
         propertyId: "1-5-012",
+        customerId: "1",
         uploadDate: new Date("2024-03-14T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -575,6 +595,7 @@ const properties: Property[] = [
     }, {
         id: "10",
         propertyId: "1-5-012",
+        customerId: "2",
         uploadDate: new Date("2024-03-19T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -628,6 +649,7 @@ const properties: Property[] = [
     }, {
         id: "11",
         propertyId: "1-5-012",
+        customerId: "2",
         uploadDate: new Date("2024-03-22T06:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -681,6 +703,7 @@ const properties: Property[] = [
     }, {
         id: "12",
         propertyId: "1-5-012",
+        customerId: "2",
         uploadDate: new Date("2024-03-17T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -734,6 +757,7 @@ const properties: Property[] = [
     }, {
         id: "13",
         propertyId: "1-5-012",
+        customerId: "2",
         uploadDate: new Date("2024-03-20T14:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -787,6 +811,7 @@ const properties: Property[] = [
     }, {
         id: "14",
         propertyId: "1-5-012",
+        customerId: "2",
         uploadDate: new Date("2024-03-19T18:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -840,6 +865,7 @@ const properties: Property[] = [
     }, {
         id: "15",
         propertyId: "1-5-012",
+        customerId: "2",
         uploadDate: new Date("2024-03-20T08:110:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -900,7 +926,7 @@ export type Customer = {
     phone: string,
     email: string,
     description?: string,
-    properties?: Property[]
+    properties?: string[]
 }
 
 export const customers = [{
@@ -909,8 +935,13 @@ export const customers = [{
     position: "Sales Leader",
     phone: "+00 00 000 0000",
     email: "example@example.com",
-    description: "",
-    properties: [],
+    description: `Tisztelt Érdeklődő! \n
+    Több mint 10 éves tapasztalattal a hátam mögött hivatásomnak tekintem az ingatlanközvetítést. A saját elképzeléseim megvalósítása és a hatékonyabb munkavégzés érdekében \n 
+    önálló vállalkozást alapítottam, melynek fő tevékenysége továbbra is az ingatlanközvetítés, csak egy kicsit másképp.\n
+    Engem örömmel tölt el, ha azt látom, hogy a látszólag ellentétes érdeket képviselő felek a közreműködésemnek köszönhetően elégedetten állnak fel az asztaltól egy adásvételi vagy \n bérleti szerződés aláírását követően. \n
+    Vallom, hogy elégedett ügyfelek nélkül nincs üzlet. Erre a szemléletre ösztönzöm kollégáimat is, akikkel a hét minden napján készséggel állunk rendelkezésére. \n
+    Hívjon, és meglátja, hogy nem fog csalódni !`,
+    properties: ["1","2","3","4","5","6","7","8","9"],
 }, {
     id: "2",
     name: "Vanessa Doe",
@@ -918,7 +949,7 @@ export const customers = [{
     phone: "+00 00 000 0000",
     email: "example@example.com",
     description: "",
-    properties: [],
+    properties: ["10","11","12","13","14","15","1237"],
 }, {
     id: "3",
     name: "Admin",

@@ -4,16 +4,14 @@ import Header from "../Components/Header/Header"
 import TeamCard from "../Components/Team/TeamCard"
 import { customers } from "../dummyData"
 import "./RoutesCSS/Team.css"
+import Highlight from "../Components/DefaultHighLight/Highlights"
 
 const Team = () => {
     const { id } = useParams()
 
     return (<>
         <Header />
-        <div className="team-highlight-container">
-            <img src="/highlight.jpg" alt="highlight" />
-            <div className="team-highlight-text">Team</div>
-        </div>
+        <Highlight title="Team" />
         {id ? <Outlet /> :
             <div className="team-content-container">
                 {customers.map((customer, index) =>

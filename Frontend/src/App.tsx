@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <PropertyDetails />
       },
       {
-        path: "/:customerId",
+        path: ":customerId",
         element: <Properties />
       },
       //{

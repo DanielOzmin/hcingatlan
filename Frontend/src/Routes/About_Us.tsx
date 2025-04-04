@@ -1,13 +1,24 @@
+import AboutUsFixIntroduction from "../Components/AboutUs/AboutUsFixIntroduction"
+import AgentCard from "../Components/AboutUs/AgentCard"
+import IntroductionHighLight from "../Components/AboutUs/IntroductionHighLight"
+import Highlight from "../Components/DefaultHighLight/Highlights"
 import Header from "../Components/Header/Header"
+import { customers } from "../dummyData"
+import "./RoutesCSS/AboutUs.css"
 
-const AboutUs=()=>{
+const AboutUs = () => {
     return (
         <>
-        <Header/>
-        <div className="content-container">
-            <h1>About us</h1>
-        </div>
-        
+            <Header />
+            <Highlight title="About Us" />
+            <AboutUsFixIntroduction />
+            <IntroductionHighLight />
+            <div className="agent-list">
+                {customers.map((customer, index) =>
+                    <AgentCard key={index} agent={customer} />)}
+            </div>
+
+
         </>
     )
 }

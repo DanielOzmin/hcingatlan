@@ -16,15 +16,25 @@ const PropertiesList = () => {
     const [current, setCurrent] = useState<Property[]>([])
     const [view, setView] = useState<View>("grid")
     const [orderBy, setOrderBy] = useState<OrderBy>("dateUp")
-    const params = useParams<{customerId: string}>()
-    const customerId = params.customerId
-    console.log(params)
+    const {customerId, count, city, district} = useParams<{customerId?: string, count?:string, city?:string, district?:string}>()
+    
 
     useEffect(() => {
         let filtered = properties
       
         if (customerId) {
           filtered = filtered.filter(p => p.customerId === customerId)
+        } else if (count) {
+          const stored = localStorage.getItem("favorites")
+          const favorites = stored ? JSON.parse(stored) : []
+      
+          filtered = properties.filter(p => favorites.includes(p.id))
+        } else if( city && district){
+          filtered = properties.filter(
+            (p) =>
+              p.city.toLowerCase() === city.toLowerCase() &&
+              p.district.toLowerCase().replace("district ", "") === district.toLowerCase()
+          )
         }
       
         switch (orderBy) {
@@ -43,7 +53,7 @@ const PropertiesList = () => {
         }
       
         setCurrent(filtered)
-      }, [orderBy, properties, customerId])
+      }, [orderBy, properties, customerId,count, city, district])
 
 
     return (

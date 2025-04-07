@@ -33,10 +33,14 @@ const router = createBrowserRouter([
         path: ":customerId",
         element: <Properties />
       },
-      //{
-      //  path: ":details"
-      //  element: <FamousProperties/>
-      //}
+      {
+        path: "favorites/:count",
+        element: <Properties/>
+      },
+      {
+        path: "search/:city/:district",
+        element: <Properties/>
+      }
     ]
   },
   {

@@ -8,7 +8,7 @@
 }
 
 .contact-form h2 {
-    font-size: 22px;
+    font-size: 30px;
     margin-bottom: 30px;
     color: #111;
 }
@@ -27,6 +27,7 @@
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
+    font-size: 24px;
 }
 
 .contact-form textarea {
@@ -63,12 +64,19 @@
     font-size: 22px;
 }
 
-.terms a {
+.link-style {
+    background: none;
+    border: none;
     color: #d4aa00;
     text-decoration: underline;
-}
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0;
+    margin-top: 4px;
+  }
 
-.contact-form button {
+.submit-button {
     background-color: #d4aa00;
     color: #fff;
     border: none;
@@ -80,6 +88,6 @@
     transition: background-color 0.3s;
 }
 
-.contact-form button:hover {
+.submit-button:hover {
     background-color: #c69a00;
 }

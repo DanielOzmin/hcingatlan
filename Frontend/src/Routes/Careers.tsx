@@ -1,3 +1,4 @@
+import CareerDetails from "../Components/Careers/CareerDetails"
 import Highlight from "../Components/DefaultHighLight/Highlights"
 import Header from "../Components/Header/Header"
 
@@ -6,9 +7,7 @@ const Careers = () => {
         <>
             <Header />
             <Highlight title="Careers" />
-            <div className="content-container">
-                <h1>Careers</h1>
-            </div>
+            <CareerDetails/>
         </>
     )
 }

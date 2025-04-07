@@ -56,7 +56,7 @@ const PropertyDetails = () => {
                     <ImageGallery property={property} />
                 </div>
                 <div className="share-like-prints">
-                    <ShareLikePrint />
+                    <ShareLikePrint favId={id}/>
                     <CustomerCard customer={customer} textareaRef={textareaRef}/>
                 </div>
 

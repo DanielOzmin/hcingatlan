@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
+import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons"
 
 import "./PropertyCard.css"
 import { Property } from "../../../dummyData"
 import { formatNumber } from "../../../Services/format"
+import { useState } from "react"
 
 type Props = {
     property: Property
@@ -10,6 +14,10 @@ type Props = {
 
 const PropertyCard = ({ property }: Props) => {
     const navigate = useNavigate()
+    const [isFavorite, setIsFavorite] = useState<boolean>(() => {
+        const favorites: string[] = JSON.parse(localStorage.getItem("favorites") || "[]")
+        return favorites.includes(property.id)
+    })
 
     const propertyDescritpion =
         property.description.length > 64 ?
@@ -27,6 +35,29 @@ const PropertyCard = ({ property }: Props) => {
 
         navigate(`/properties/${city}-${district}-${propertyType}-${street}/${id}`)
     }
+
+    const handleFavorite = () => {
+        setIsFavorite(prev => {
+            const updated = !prev
+
+            const storeId = localStorage.getItem("favorites")
+            const favorites = storeId ? JSON.parse(storeId) : []
+
+            if (updated) {
+                const updatedFavorites = [property.id, ...favorites.filter((id: string) => id !== property.id)]
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+            } else {
+                const updatedFavorites = favorites.filter((id: string) => id !== property.id)
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+            }
+            window.dispatchEvent(new Event("favoritesUpdated"))
+
+            return updated
+        })
+        console.log(property.id)
+        console.log(localStorage.getItem("favorites"))
+    }
+
     return (
         <div className="property-card">
             <div className="img-container">
@@ -62,9 +93,7 @@ const PropertyCard = ({ property }: Props) => {
                     <p className="feature-label">ROOM</p>
                     <p className="feature-value">{property.floor}</p>
                 </div>
-                <div className="favorite-icon">
-                    ❤️
-                </div>
+                <FontAwesomeIcon onClick={handleFavorite} icon={isFavorite ? faHeartSolid : faHeartRegular} className={`card-heart ${isFavorite ? "favorite" : ""}`} size="2x" />
             </div>
 
         </div>

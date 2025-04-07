@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPrint, faShareNodes } from "@fortawesome/free-solid-svg-icons"
+import { faPrint, faShareNodes, faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons"
 import { useState } from "react"
 import ShareComponent from "./ShareComponent"
@@ -7,8 +7,16 @@ import ShareComponent from "./ShareComponent"
 import "./ShareLikePrint.css"
 
 
-const ShareLikePrint = () => {
+type Props = {
+    favId: string | undefined
+}
+
+const ShareLikePrint = ({ favId }: Props) => {
     const [showShare, setShowShare] = useState<boolean>(false)
+    const [isFavorite, setIsFavorite] = useState<boolean>(() => {
+        const favorites: string[] = JSON.parse(localStorage.getItem("favorites") || "[]")
+        return favorites.includes(favId || "")
+    })
 
     const handlePrint = () => {
         window.print()
@@ -16,19 +24,27 @@ const ShareLikePrint = () => {
 
     const handleShare = async () => {
         setShowShare(!showShare)
-        // if(navigator.share){
-        //     try {
-        //         await navigator.share({
-        //             title: "Share",
-        //             text: "Check the site",
-        //             url: window.location.href,
-        //         })
-        //     } catch (error) {
-        //         console.error("share is not possible: ", error)
-        //     }
-        // }else{
-        //     alert("Your browser doesnt support this share function")
-        // }
+    }
+    const handleFavorite = () => {
+        setIsFavorite(prev => {
+            const updated = !prev
+
+            const storeId = localStorage.getItem("favorites")
+            const favorites = storeId ? JSON.parse(storeId) : []
+
+            if (updated) {
+                const updatedFavorites = [favId, ...favorites.filter((id: string) => id !== favId)]
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+            } else {
+                const updatedFavorites = favorites.filter((id: string) => id !== favId)
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+            }
+            window.dispatchEvent(new Event("favoritesUpdated"))
+
+            return updated
+        })
+        console.log(favId)
+        console.log(localStorage.getItem("favorites"))
     }
 
     return (
@@ -37,8 +53,8 @@ const ShareLikePrint = () => {
                 <FontAwesomeIcon icon={faPrint} size="2x" />
                 <p>Print</p>
             </div>
-            <div className="share-like-print-icons" onClick={handleShare}>
-                <FontAwesomeIcon icon={faHeartRegular} size="2x" />
+            <div className="share-like-print-icons" onClick={handleFavorite}>
+                <FontAwesomeIcon icon={isFavorite ? faHeartSolid : faHeartRegular} className={`heart ${isFavorite ? "favorite" : ""}`} size="2x" />
                 <p>Favorite</p>
             </div>
             <div className="share-like-print-icons" onClick={handleShare}>

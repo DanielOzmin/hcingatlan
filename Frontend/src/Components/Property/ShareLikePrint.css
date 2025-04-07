@@ -10,6 +10,10 @@
     padding: 15px;
     margin: auto;
 }
+.heart.favorite{
+    color:red;
+}
+
 
 .share-like-print-icons:hover{
     color: #d3b325;

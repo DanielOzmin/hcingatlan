@@ -1,14 +1,22 @@
 import "./PropertyCardList.css"
 import { useNavigate } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
+import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons"
 
 import { Property } from "../../../dummyData"
 import { formatNumber } from "../../../Services/format"
+import { useState } from "react"
 
 type Props = {
     property: Property
 }
 
 const PropertyCardList = ({ property }: Props) => {
+    const [isFavorite, setIsFavorite] = useState<boolean>(() => {
+        const favorites: string[] = JSON.parse(localStorage.getItem("favorites") || "[]")
+        return favorites.includes(property.id)
+    })
     const navigate = useNavigate()
 
     const propertyDescritpion =
@@ -23,6 +31,27 @@ const PropertyCardList = ({ property }: Props) => {
         const savePropertyId = [property.id, ...seen.filter((id: string) => id !== property.id).slice(0, 10)]
         localStorage.setItem("lastSeen", JSON.stringify(savePropertyId))
         navigate(`/properties/${city}-${district}-${propertyType}-${street}/${id}`)
+    }
+    const handleFavorite = () => {
+        setIsFavorite(prev => {
+            const updated = !prev
+
+            const storeId = localStorage.getItem("favorites")
+            const favorites = storeId ? JSON.parse(storeId) : []
+
+            if (updated) {
+                const updatedFavorites = [property.id, ...favorites.filter((id: string) => id !== property.id)]
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+            } else {
+                const updatedFavorites = favorites.filter((id: string) => id !== property.id)
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+            }
+            window.dispatchEvent(new Event("favoritesUpdated"))
+
+            return updated
+        })
+        console.log(property.id)
+        console.log(localStorage.getItem("favorites"))
     }
 
     return (
@@ -59,7 +88,7 @@ const PropertyCardList = ({ property }: Props) => {
                         <p className="feature-label">ROOM</p>
                         <p className="feature-value">{property.rooms}</p>
                     </div>
-                    <div className="favorite-icon">❤️</div>
+                    <FontAwesomeIcon onClick={handleFavorite} icon={isFavorite ? faHeartSolid : faHeartRegular} className={`list-heart ${isFavorite ? "favorite" : ""}`} size="2x" />
                 </div>
             </div>
         </div>

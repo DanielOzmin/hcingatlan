@@ -22,7 +22,7 @@
     border: 1px solid #ccc;
     padding: 5px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 100;
+    z-index: 10;
 }
 
 .dropdown-item {
@@ -31,6 +31,7 @@
     align-items: center;
     padding: 5px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .dropdown-item:hover {
@@ -39,6 +40,7 @@
 
 .option-text {
     flex-grow: 1; 
+    font-size: 18px;
 }
 
 .checkmark {

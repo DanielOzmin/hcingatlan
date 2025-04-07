@@ -9,19 +9,17 @@ import Highlight from "../Components/DefaultHighLight/Highlights"
 const Team = () => {
     const { id } = useParams()
 
-    return (<>
-        <Header />
-        <Highlight title="Team" />
-        {id ? <Outlet /> :
-            <div className="team-content-container">
-                {customers.map((customer, index) =>
-                    <TeamCard key={index} customer={customer} />
-                )}
-            </div>}
-
-
-
-    </>)
+    return (
+        <>
+            <Header />
+            <Highlight title="Team" />
+            {id ? <Outlet /> :
+                <div className="team-content-container">
+                    {customers.map((customer, index) =>
+                        <TeamCard key={index} customer={customer} />
+                    )}
+                </div>}
+        </>)
 }
 
 export default Team

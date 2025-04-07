@@ -1,18 +1,22 @@
 import { useParams } from "react-router-dom"
 
 import "../Routes/RoutesCSS/PropertyDetails.css"
-import properties, { Property } from "../dummyData"
+import properties, { Property, customers } from "../dummyData"
 import ImageGallery from "../Components/Property/ImageGallery"
 import ShareLikePrint from "../Components/Property/ShareLikePrint"
 import CustomerCard from "../Components/Customer/CustomerCard"
+import ContactInfo from "../Components/Property/ContactInfo"
+import { useRef } from "react"
 
 
 
 
 const PropertyDetails = () => {
     const { id } = useParams<{ id: string }>()
+    const textareaRef = useRef<HTMLTextAreaElement>(null)
 
     const property: Property = properties.filter((property) => property.id === id)[0]
+    const customer = customers.filter((cus)=> property.customerId === cus.id)[0]
 
     const parameters = [
         { label: "Settlement", value: `${property.zip}, ${property.city} ${property.district}` },
@@ -53,7 +57,7 @@ const PropertyDetails = () => {
                 </div>
                 <div className="share-like-prints">
                     <ShareLikePrint />
-                    <CustomerCard />
+                    <CustomerCard customer={customer} textareaRef={textareaRef}/>
                 </div>
 
             </div>
@@ -102,7 +106,7 @@ const PropertyDetails = () => {
                     </div>
                 </div>
                 <div className="google-map">Google maps HERE!!!</div>
-                <div>Contact with..</div>
+                <ContactInfo property={property} customer={customer} textareaRef={textareaRef}/>
 
 
             </div>

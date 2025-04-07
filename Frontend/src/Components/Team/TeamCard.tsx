@@ -10,7 +10,6 @@ const TeamCard = ({customer}: Props) => {
     const navigate = useNavigate()
 
     const handleIntoduceClick = (id: string, name: string) => {
-        console.log(`/team/${name}/${id}`)
         navigate(`/team/${name}/${id}`)
     }
 

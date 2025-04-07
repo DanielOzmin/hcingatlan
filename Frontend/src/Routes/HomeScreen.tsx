@@ -25,10 +25,10 @@ const HomeScreen = () => {
                 <Content />
             </div>
             <div>
-                <PropertyHighLight/>
+                <PropertyHighLight />
             </div>
             <div>
-                <LastSeenHome/>
+                <LastSeenHome />
             </div>
         </>
 

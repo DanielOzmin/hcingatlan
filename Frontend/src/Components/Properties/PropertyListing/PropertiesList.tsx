@@ -11,16 +11,14 @@ import { useParams } from "react-router-dom"
 
 type View = "grid" | "list"
 type OrderBy = "dateUp" |  "dateDown" | "priceUp" | "priceDown"
-type Props = {
-  Id?: string
-}
 
-const PropertiesList = ({Id}: Props) => {
+const PropertiesList = () => {
     const [current, setCurrent] = useState<Property[]>([])
     const [view, setView] = useState<View>("grid")
     const [orderBy, setOrderBy] = useState<OrderBy>("dateUp")
     const params = useParams<{customerId: string}>()
-    const customerId = Id ?? params.customerId
+    const customerId = params.customerId
+    console.log(params)
 
     useEffect(() => {
         let filtered = properties

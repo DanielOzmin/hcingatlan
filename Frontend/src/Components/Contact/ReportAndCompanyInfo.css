@@ -1,0 +1,47 @@
+.report-company-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .info-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #d4aa00;
+    margin-bottom: 15px;
+  }
+  
+  .sub-title {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .bold-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .contact-image {
+    margin-top: 20px;
+    width: 230px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  

@@ -6,12 +6,12 @@ import PropertiesMain from "../Components/Properties/PropertiesMain"
 const Properties = () => {
     const { id } = useParams()
 
-    return(<>
-        <Header/>
-        <div className="content-container">
-            { id ? <Outlet /> : <PropertiesMain/>}
-        </div>
-        
+    return (
+        <>
+            <Header />
+            <div className="content-container">
+                {id ? <Outlet /> : <PropertiesMain />}
+            </div>
         </>)
 }
 

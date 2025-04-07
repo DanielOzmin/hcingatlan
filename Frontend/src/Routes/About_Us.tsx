@@ -17,8 +17,6 @@ const AboutUs = () => {
                 {customers.map((customer, index) =>
                     <AgentCard key={index} agent={customer} />)}
             </div>
-
-
         </>
     )
 }

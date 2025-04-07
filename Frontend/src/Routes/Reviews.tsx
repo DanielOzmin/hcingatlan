@@ -1,14 +1,13 @@
 import Highlight from "../Components/DefaultHighLight/Highlights"
 import Header from "../Components/Header/Header"
+import ReviewList from "../Components/Reviews/ReviewList"
 
 const Reviews = () => {
-    return(<>
-        <Header/>
-        <Highlight title="Reviews" />
-        <div className="content-container">
-            <h1>Reviews</h1>
-        </div>
-        
+    return (
+        <>
+            <Header />
+            <Highlight title="Reviews" />
+            <ReviewList />
         </>)
 }
 

@@ -1,0 +1,127 @@
+.contact-info-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.contact-info-card {
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.contact-info-card h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background: #f5f5f5;
+    padding: 14px;
+    text-align: left;
+}
+
+.contact-info-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.contact-info-row img {
+    width: 130px;
+    height: 130px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.contact-info-text a {
+    font-weight: bold;
+    color: #d4aa00;
+    text-decoration: none;
+}
+
+.contact-info-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.contact-info-details svg {
+    color: #d4aa00;
+}
+
+.contact-info-form {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 25px;
+}
+
+.contact-info-title {
+    font-size: 24px;
+    margin-bottom: 34px;
+    font-weight: bold;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-info-grid input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-info-textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.contact-info-recaptcha {
+    margin-bottom: 20px;
+    transform: scale(1.05);
+    transform-origin: left;
+}
+
+.contact-info-terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.contact-info-terms a {
+    color: #d4aa00;
+    text-decoration: underline;
+}
+
+.contact-info-submit {
+    background-color: #d4aa00;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.contact-info-submit:hover {
+    background-color: #c59b00;
+}

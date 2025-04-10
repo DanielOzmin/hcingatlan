@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom"
-import { customers } from "../../dummyData"
+import { employees } from "../../dummyData"
 
-import "./CustomerPageDescription.css"
+import "./EmployeePageDescription.css"
 
 
-const CustomerPageDescription = () => {
+const EmployeePageDescription = () => {
     const { id } = useParams<{ id: string }>()
 
-    const customer = customers.find(c => c.id == id)
+    const customer = employees.find(e => e.publicId == id)
 
     return (
         <div>
@@ -42,4 +42,4 @@ const CustomerPageDescription = () => {
     )
 }
 
-export default CustomerPageDescription
+export default EmployeePageDescription

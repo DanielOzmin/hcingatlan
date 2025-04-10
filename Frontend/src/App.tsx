@@ -12,7 +12,9 @@ import Careers from "./Routes/Careers"
 import PropertyDetails from "./Routes/PropertyDetails"
 import Footer from "./Components/Footer/Footer"
 import i18n from "./i18n"
-import CustomerPage from "./Routes/CustomerPage";
+import EmployeePage from "./Routes/EmployeePage";
+
+
 
 
 
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
         element: <PropertyDetails />
       },
       {
-        path: ":customerId",
+        path: ":employeeId",
         element: <Properties />
       },
       {
@@ -48,8 +50,8 @@ const router = createBrowserRouter([
     element: <Team />,
     children: [
       {
-        path: ":customer/:id",
-        element: <CustomerPage/>,
+        path: ":employee/:id",
+        element: <EmployeePage/>,
     },
   ]
   },

@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom"
-import { Customer } from "../../dummyData"
+import { Employee } from "../../dummyData"
 import "./TeamCard.css"
 
 type Props = {
-    customer: Customer
+    employee: Employee
 }
 
-const TeamCard = ({customer}: Props) => {
+const TeamCard = ({employee}: Props) => {
     const navigate = useNavigate()
 
     const handleIntoduceClick = (id: string, name: string) => {
@@ -23,21 +23,21 @@ const TeamCard = ({customer}: Props) => {
                 <img src="/ExamplePic.webp" alt="Customer Image" className="team-card-img" />
             </div>
             <div className="team-card-details">
-                <h1>{customer.name}</h1>
-                <p>{customer.position}</p>
+                <h1>{employee.name}</h1>
+                <p>{employee.position}</p>
                 <div className="team-card-info">
                     <div className="team-card-info-phone">
                         <label>Phone: </label>
-                        <span>{customer.phone}</span>
+                        <span>{employee.phone}</span>
                     </div>
                     <div className="team-card-info-email">
                         <label>Email: </label>
-                        <span>{customer.email}</span>
+                        <span>{employee.email}</span>
                     </div>
                 </div>
                 <div className="team-card-buttons">
-                    <button className="team-card-introducing-button" onClick={()=>handleIntoduceClick(customer.id,customer.name)}>Introducing</button>
-                    <button className="team-card-properties-button" onClick={()=>handlePropertiesClick(customer.id)}>Properties ({customer.properties?.length})</button>
+                    <button className="team-card-introducing-button" onClick={()=>handleIntoduceClick(employee.publicId,employee.name)}>Introducing</button>
+                    <button className="team-card-properties-button" onClick={()=>handlePropertiesClick(employee.publicId)}>Properties ({employee.properties?.length})</button>
                 </div>
 
             </div>

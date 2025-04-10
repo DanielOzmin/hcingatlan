@@ -61,12 +61,16 @@ const PropertyCard = ({ property }: Props) => {
     return (
         <div className="property-card">
             <div className="img-container">
-                <img src="/Testpic.jpg" alt="property-img" />
+                {property.img && property.img.length > 0 && (
+                    <img src={property.img[0]} alt="img-icon" />
+                )}
                 <span className="status">
                     {property.transactionType}
                 </span>
                 <span className="img-count">
-                    <img src="/imgicon.jpg" alt="img-icon" />
+                    {property.img && property.img.length > 0 && (
+                        <img src={property.img[0]} alt="img-icon" />
+                    )}
                     {property.img?.length}
                 </span>
             </div>

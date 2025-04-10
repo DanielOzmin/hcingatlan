@@ -39,13 +39,13 @@ export type Property = {
     extras: string[]
     uploadDate: Date,
     featured?: boolean,
-    customerId: string,
+    employeeId: string,
     img?: string[]
 }
 const properties: Property[] = [
     {
         id: "1237",
-        customerId: "2",
+        employeeId: "2",
         uploadDate: new Date("2024-03-20T08:00:00Z"),
         propertyId: "1-5-012",
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
@@ -97,11 +97,11 @@ const properties: Property[] = [
         parking: "on street",
         featured: true,
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "1",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-22T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -152,11 +152,11 @@ const properties: Property[] = [
         featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "2",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-20T13:50:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -207,11 +207,11 @@ const properties: Property[] = [
         featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "3",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-16T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -262,11 +262,11 @@ const properties: Property[] = [
         featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "4",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-21T21:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -317,11 +317,11 @@ const properties: Property[] = [
         parking: "on street",
         featured: true,
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "5",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-20T08:55:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -372,11 +372,11 @@ const properties: Property[] = [
         featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "6",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-02-20T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -427,11 +427,11 @@ const properties: Property[] = [
         parking: "on street",
         featured: true,
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "7",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-22T02:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -482,12 +482,12 @@ const properties: Property[] = [
         featured: true,
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     },
     {
         id: "8",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-11T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -537,11 +537,11 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "9",
         propertyId: "1-5-012",
-        customerId: "1",
+        employeeId: "1",
         uploadDate: new Date("2024-03-14T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -591,11 +591,11 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "10",
         propertyId: "1-5-012",
-        customerId: "2",
+        employeeId: "2",
         uploadDate: new Date("2024-03-19T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -645,11 +645,11 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "11",
         propertyId: "1-5-012",
-        customerId: "2",
+        employeeId: "2",
         uploadDate: new Date("2024-03-22T06:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -699,11 +699,11 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "12",
         propertyId: "1-5-012",
-        customerId: "2",
+        employeeId: "2",
         uploadDate: new Date("2024-03-17T08:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -753,11 +753,11 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "13",
         propertyId: "1-5-012",
-        customerId: "2",
+        employeeId: "2",
         uploadDate: new Date("2024-03-20T14:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -807,11 +807,11 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "14",
         propertyId: "1-5-012",
-        customerId: "2",
+        employeeId: "2",
         uploadDate: new Date("2024-03-19T18:00:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -861,11 +861,11 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     }, {
         id: "15",
         propertyId: "1-5-012",
-        customerId: "2",
+        employeeId: "2",
         uploadDate: new Date("2024-03-20T08:110:00Z"),
         description: `Eladó különleges befektetési lehetőség a belváros szívében, a Bazilika mellett közvetlen!
     
@@ -915,12 +915,13 @@ const properties: Property[] = [
         view: "countryard view",
         parking: "on street",
         extras: ["Unencumbered", "Low utility costs", "Open - plan kitchen"],
-        img: ["/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg", "/Testpic.jpg", "/housepic.jpeg"]
+        img: ["https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg", "https://www.digitalphotomentor.com/photography/2018/09/real-estate-photography-interior-photo-750x500.jpg", "https://candyfoxstudio.com/media/Real%20estate/2.jpg"]
     },
 ]
 
-export type Customer = {
+export type Employee = {
     id: string,
+    publicId: string,
     name: string,
     position: string,
     phone: string,
@@ -929,8 +930,9 @@ export type Customer = {
     properties?: string[]
 }
 
-export const customers = [{
+export const employees: Employee[] = [{
     id: "1",
+    publicId: "1",
     name: "John Doe",
     position: "Sales Leader",
     phone: "+00 00 000 0000",
@@ -944,6 +946,7 @@ export const customers = [{
     properties: ["1","2","3","4","5","6","7","8","9"],
 }, {
     id: "2",
+    publicId: "2",
     name: "Vanessa Doe",
     position: "Sales",
     phone: "+00 00 000 0000",
@@ -952,6 +955,7 @@ export const customers = [{
     properties: ["10","11","12","13","14","15","1237"],
 }, {
     id: "3",
+    publicId:"3",
     name: "Admin",
     position: "Assistant",
     phone: "",

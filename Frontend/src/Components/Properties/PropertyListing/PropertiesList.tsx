@@ -23,7 +23,7 @@ const PropertiesList = () => {
         let filtered = properties
       
         if (customerId) {
-          filtered = filtered.filter(p => p.customerId === customerId)
+          filtered = filtered.filter(p => p.employeeId === customerId)
         } else if (count) {
           const stored = localStorage.getItem("favorites")
           const favorites = stored ? JSON.parse(stored) : []

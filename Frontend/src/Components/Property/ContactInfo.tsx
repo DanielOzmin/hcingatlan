@@ -5,21 +5,24 @@ import { faPhone, faAward, faUser } from "@fortawesome/free-solid-svg-icons"
 import { faEnvelope as falEnvelopeRegular } from "@fortawesome/free-regular-svg-icons"
 
 import "./ContactInfo.css"
-import { Customer, Property } from "../../dummyData"
+import { Employee, Property } from "../../dummyData"
 import PrivacyPolicyModal from "../PrivacyPolicy/PrivacyPolicyModal"
+import { SendMessage } from "../../Apis"
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY
 
 type Props = {
-    customer: Customer,
+    employee: Employee,
     property: Property,
     textareaRef: React.RefObject<HTMLTextAreaElement | null>
 }
-const ContactInfo = ({ customer, property, textareaRef }: Props) => {
+
+const ContactInfo = ({ employee, property, textareaRef }: Props) => {
     const recaptchaRef = useRef<ReCAPTCHA>(null)
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
     const [IsModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [formData, setFormData] = useState({
+        employeeId: `${employee.id}`,
         name: "",
         email: "",
         phone: "",
@@ -47,8 +50,10 @@ const ContactInfo = ({ customer, property, textareaRef }: Props) => {
         if (!recaptchaToken) {
             return alert("pls confirm you are not a robot!")
         }
+        
+        const data = { ...formData, recaptchaToken }
 
-        console.log("Sending data:", formData)
+        SendMessage(data)
     }
 
     return (
@@ -61,19 +66,19 @@ const ContactInfo = ({ customer, property, textareaRef }: Props) => {
                         <div className="contact-info-text">
                             <div className="contact-info-details">
                                 <FontAwesomeIcon icon={faUser} />
-                                <span>{customer.name}</span>
+                                <span>{employee.name}</span>
                             </div>
                             <div className="contact-info-details">
                                 <FontAwesomeIcon icon={faAward} />
-                                <span>{customer.position}</span>
+                                <span>{employee.position}</span>
                             </div>
                             <div className="contact-info-details">
                                 <FontAwesomeIcon icon={faPhone} />
-                                <span>{customer.phone}</span>
+                                <span>{employee.phone}</span>
                             </div>
                             <div className="contact-info-details">
                                 <FontAwesomeIcon icon={falEnvelopeRegular} />
-                                <span>{customer.email}</span>
+                                <span>{employee.email}</span>
                             </div>
                         </div>
                     </div>
@@ -100,7 +105,10 @@ const ContactInfo = ({ customer, property, textareaRef }: Props) => {
                     <div className="contact-info-recaptcha">
                         <ReCAPTCHA
                             sitekey={RECAPTCHA_SITE_KEY}
-                            onChange={(token) => setRecaptchaToken(token)}
+                            onChange={(token) => {
+                                console.log("ReCAPTCHA token:", token);
+                                setRecaptchaToken(token);
+                            }}
                             ref={recaptchaRef}
                         />
                     </div>
@@ -125,7 +133,7 @@ const ContactInfo = ({ customer, property, textareaRef }: Props) => {
                     <button type="submit" className="contact-info-submit">Submit</button>
                 </form>
             </div>
-            {IsModalOpen && <PrivacyPolicyModal onClose={()=>setIsModalOpen(false)}/>}
+            {IsModalOpen && <PrivacyPolicyModal onClose={() => setIsModalOpen(false)} />}
         </>
 
     )

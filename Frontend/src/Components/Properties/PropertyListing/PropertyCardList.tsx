@@ -57,7 +57,9 @@ const PropertyCardList = ({ property }: Props) => {
     return (
         <div className="property-list-item">
             <div>
-                <img src="/Testpic.jpg" alt="testpic" />
+                {property.img && property.img.length > 0 && (
+                    <img src={property.img[0]} alt="property-img" />
+                )}
             </div>
             <div className="property-list-content">
                 <div className="property-list-header" onClick={() => handleCardClick(property.id, property.city, property.district, property.propertyType, property.street)}>

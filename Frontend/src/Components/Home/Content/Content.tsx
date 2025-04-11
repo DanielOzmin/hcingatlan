@@ -1,19 +1,29 @@
 import PropertyCard from "./ProperyCard"
 import "./Content.css"
-import properties from "../../../dummyData"
+import { useEffect } from "react"
+import { Property, fetchProperties } from "../../../Apis"
 
-const Content = () => {
+type Props = {
+    properties: Property[]
+    setProperties: React.Dispatch<React.SetStateAction<Property[]>>
+}
 
-    const featureProperties = properties.filter((p) => p.featured === true).slice(0,6)
+const Content = ({properties, setProperties}: Props) => {
 
-return(
-    <div className="content-container">
-        <h2>FEATURED PROPERTIES</h2>
-        <div className="cards-container">
-            {featureProperties.map((property, index)=> <PropertyCard key={index} property={property} />)}
+    useEffect(() => {
+        fetchProperties(setProperties)
+    }, [])
 
+    const featureProperties = properties.filter((p) => p.featured === true).slice(0, 6)
+
+    return (
+        <div className="content-container">
+            <h2>FEATURED PROPERTIES</h2>
+            <div className="cards-container">
+                {featureProperties.map((property, index) => <PropertyCard key={index} property={property} />)}
+
+            </div>
         </div>
-    </div>
-)
+    )
 }
 export default Content

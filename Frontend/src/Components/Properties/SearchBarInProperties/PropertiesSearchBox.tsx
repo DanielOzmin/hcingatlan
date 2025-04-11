@@ -1,13 +1,11 @@
 import { useState } from "react"
-import SearchDropdown from "../../Home/SearchBar/SearchDropdown"
-import MinMaxInput from "../../Home/SearchBar/MinMaxInput"
 import "./PropertiesSearchBox.css"
 import DropDownInProperties from "./DropDownInProperties"
 import PropertyMinMax from "./PropertyMinMax"
 import SelectDropDown from "./SelectDropDown"
+import { Property, Search, SearchFromBar, fetchPropertiesBySearch } from "../../../Apis"
 
 const homeTypes: string[] = ["Apartman", "House", "Land", "Rental space"]
-const loans: string[] = ["CSOK PLUS: No", "CSOK PLUS: Yes"]
 const locations: string[] = [
     "1st District – I",
     "2nd District – II",
@@ -36,22 +34,12 @@ const locations: string[] = [
     "Dunaharaszti"
 ]
 
-type Search = {
-    selectedCategory: string,
-    selectedType: string[],
-    location: string[],
-    loan: string[],
-    typedId: string,
-    minPrice: number | null,
-    maxPrice: number | null,
-    minFloorArea: number | null,
-    maxFloorArea: number | null,
-    minRoomNumber: number | null,
-    maxRoomNumber: number | null,
-    buildType: string
+type Props = {
+    setProperties: React.Dispatch<React.SetStateAction<Property[]>>
 }
 
-const PropertiesSearchBox = () => {
+
+const PropertiesSearchBox = ({setProperties}: Props ) => {
     const [search, setSearch] = useState<Search>({
         selectedCategory: "",
         selectedType: [],
@@ -68,7 +56,7 @@ const PropertiesSearchBox = () => {
     })
 
     const handleSearchClick = () => {
-        console.log(search)
+        fetchPropertiesBySearch(setProperties,search)
     }
 
     return (

@@ -90,12 +90,12 @@ const PropertyCard = ({ property }: Props) => {
                     <p className="feature-value">{property.floorArea}m²</p>
                 </div>
                 <div className="property-box">
-                    <p className="feature-label">FLOOR</p>
-                    <p className="feature-value">{property.floor}.</p>
+                    {property.propertyType == "House" ? <p className="feature-label">PARCEL</p> : <p className="feature-label">FLOOR</p> }
+                    {property.propertyType == "House" ? <p className="feature-value">{property.parcel}</p> : <p className="feature-value">{property.floor}</p>}
                 </div>
                 <div className="property-box">
                     <p className="feature-label">ROOM</p>
-                    <p className="feature-value">{property.floor}</p>
+                    <p className="feature-value">{property.rooms}</p>
                 </div>
                 <FontAwesomeIcon onClick={handleFavorite} icon={isFavorite ? faHeartSolid : faHeartRegular} className={`card-heart ${isFavorite ? "favorite" : ""}`} size="2x" />
             </div>

@@ -27,7 +27,7 @@ const LastSeenPropertiesCard = ({ property }: Props) => {
             )}
             <div className="last-seen-info" onClick={() => handlePropertyClick(property.id, property.city, property.district, property.propertyType, property.street)}>
                 <h1>{property.transactionType} {property.propertyType}</h1>
-                <h1>{property.city} {property.district}</h1>
+                <h1>{property.city} {property.district ? property.district : "" }</h1>
                 <p>{property.price.toLocaleString()} Ft</p>
             </div>
         </div>

@@ -1,8 +1,9 @@
-import { useState } from "react"
+import {  useState } from "react"
 import MinMaxInput from "./MinMaxInput"
 import SearchDropdown from "./SearchDropdown"
 import "./SearchInHome.css"
-import properties from "../../../dummyData"
+
+import { Property, Search, fetchPropertiesBySearch } from "../../../Apis"
 
 const homeTypes: string[] = ["Apartman", "House", "Land", "Rental space"]
 const loans: string[] = ["CSOK PLUS: No", "CSOK PLUS: Yes"]
@@ -33,22 +34,12 @@ const locations: string[] = [
     "Érd",
     "Dunaharaszti"
 ]
-type Search = {
-    selectedCategory: string,
-    selectedType: string[],
-    location: string[],
-    loan: string[],
-    typedId: string,
-    minPrice: number | null,
-    maxPrice: number | null,
-    minFloorArea: number | null,
-    maxFloorArea: number | null,
-    minRoomNumber: number | null,
-    maxRoomNumber: number | null,
-    buildType: string,
+
+type Props = {
+    setProperties: React.Dispatch<React.SetStateAction<Property[]>>
 }
 
-const SearchInHome = () => {
+const SearchInHome = ({setProperties} : Props) => {
     const [search, setSearch] = useState<Search>({
         selectedCategory: "",
         selectedType: [],
@@ -69,8 +60,7 @@ const SearchInHome = () => {
     }
 
     const handleClick = () => {
-        console.log(search)
-        alert("u are searching")
+        fetchPropertiesBySearch(setProperties, search)
     }
 
     return (
@@ -129,7 +119,7 @@ const SearchInHome = () => {
                     label="Room number"
                     fieldKeys={["minRoomNumber", "maxRoomNumber"]}
                     setSearch={setSearch} />
-                <button className="search-btn" onClick={handleClick}>Search ({properties.length})</button>
+                <button className="search-btn" onClick={handleClick}>Search</button>
             </div>
         </div>
     )

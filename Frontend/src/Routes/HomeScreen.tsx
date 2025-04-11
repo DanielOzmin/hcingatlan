@@ -7,10 +7,12 @@ import SearchInHome from "../Components/Home/SearchBar/SearchInHome"
 import Content from "../Components/Home/Content/Content"
 import PropertyHighLight from "../Components/Home/Highlights/PropertyHighLight"
 import LastSeenHome from "../Components/Home/LastSeenHome/LastSeenHome"
+import { useState } from "react"
+import { Property } from "../Apis"
 
 
 const HomeScreen = () => {
-
+    const [properties, setProperties] = useState<Property[]>([])
 
     return (
         <>
@@ -19,10 +21,10 @@ const HomeScreen = () => {
                 <Slider />
             </div>
             <div>
-                <SearchInHome />
+                <SearchInHome setProperties={setProperties}/>
             </div>
             <div>
-                <Content />
+                <Content properties={properties} setProperties={setProperties}/>
             </div>
             <div>
                 <PropertyHighLight />

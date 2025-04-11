@@ -50,4 +50,5 @@ public class Property
     public List<string>? Img { get; set; }
     public int? Floor { get; set; }
     public int? Parcel { get; set; }
+    public bool? IsNew { get; set; }
 }

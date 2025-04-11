@@ -1,12 +1,21 @@
+import { useEffect, useState } from "react"
 import AboutUsFixIntroduction from "../Components/AboutUs/AboutUsFixIntroduction"
 import AgentCard from "../Components/AboutUs/AgentCard"
 import IntroductionHighLight from "../Components/AboutUs/IntroductionHighLight"
 import Highlight from "../Components/DefaultHighLight/Highlights"
 import Header from "../Components/Header/Header"
-import { employees } from "../dummyData"
 import "./RoutesCSS/AboutUs.css"
+import { Employee, fetchAllEmployee } from "../Apis"
 
 const AboutUs = () => {
+    const [employees, setEmployees] = useState<Employee[]>([]) 
+
+    useEffect(()=>{
+        
+        fetchAllEmployee(setEmployees)
+        
+    },[])
+
     return (
         <>
             <Header />

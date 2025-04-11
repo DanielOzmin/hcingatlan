@@ -1,22 +1,33 @@
 import { useParams } from "react-router-dom"
 
 import "../Routes/RoutesCSS/PropertyDetails.css"
-import properties, { Property, employees } from "../dummyData"
 import ImageGallery from "../Components/Property/ImageGallery"
 import ShareLikePrint from "../Components/Property/ShareLikePrint"
 import ContactInfo from "../Components/Property/ContactInfo"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import EmployeeCard from "../Components/Employee/EmployeeCard"
-
-
+import { Employee, Property, fetchEmployeeById, fetchPropertyById } from "../Apis"
 
 
 const PropertyDetails = () => {
     const { id } = useParams<{ id: string }>()
     const textareaRef = useRef<HTMLTextAreaElement>(null)
+    const [property, setProperty] = useState<Property>()
+    const [employee, setEmployee] = useState<Employee | null>()
 
-    const property: Property = properties.filter((property) => property.id === id)[0]
-    const employee = employees.filter((emp)=> property.employeeId === emp.publicId)[0]
+    useEffect(() => {
+        if (!id) return
+        fetchPropertyById(setProperty, id)
+    }, [id])
+
+    useEffect(() => {
+        if (!property?.employeeId) return
+        fetchEmployeeById(property?.employeeId, setEmployee)
+    }, [property])
+
+    if (!property || !employee) {
+        return <div>No data available</div>
+    }
 
     const parameters = [
         { label: "Settlement", value: `${property.zip}, ${property.city} ${property.district}` },
@@ -40,13 +51,13 @@ const PropertyDetails = () => {
         { label: "Toilet and Bathroom", value: property.bathroomAndToilet },
         { label: "Balcony", value: property.balcony ? "Yes" : "No" },
         { label: "Balcony Size", value: property.balconySize ? `${property.balconySize} m²` : null },
-        { label: "Accessible (Barrier-Free)", value: property.accessible ? "Yes" : "No" },
+        { label: "Accessible (Barrier-Free)", value: property?.accessible ? "Yes" : "No" },
         { label: "Garden Access", value: property.gardenAccess ? "Yes" : "No" },
         { label: "Entrance From", value: property.entrance },
         { label: "View", value: property.view },
         { label: "Orientation", value: property.orientation },
         { label: "Parking", value: property.parking },
-        { label: "Extras", value: property.extras },
+        { label: "Extras", value: property.extras }
     ]
 
     return (
@@ -56,20 +67,20 @@ const PropertyDetails = () => {
                     <ImageGallery property={property} />
                 </div>
                 <div className="share-like-prints">
-                    <ShareLikePrint favId={id}/>
-                    <EmployeeCard employee={employee} textareaRef={textareaRef}/>
+                    <ShareLikePrint favId={id} />
+                    <EmployeeCard employee={employee} textareaRef={textareaRef} />
                 </div>
 
             </div>
             <div className="property-info-container">
                 <div className="property-info-header">
                     <h1>{property.city}</h1>
-                    <span>- {property.transactionType} {property.propertyType}</span>
+                    <span>- {property.transactionType} {property?.propertyType}</span>
                 </div>
                 <div className="property-info-base">
                     <div>
                         <div className="info-title">Location</div>
-                        <p>{property.district}, {property.street}</p>
+                        <p>{property.district}, {property?.street}</p>
                     </div>
                     <div>
                         <div className="info-title">Floor area</div>
@@ -106,7 +117,7 @@ const PropertyDetails = () => {
                     </div>
                 </div>
                 <div className="google-map">Google maps HERE!!!</div>
-                <ContactInfo property={property} employee={employee} textareaRef={textareaRef}/>
+                <ContactInfo property={property} employee={employee} textareaRef={textareaRef} />
 
 
             </div>

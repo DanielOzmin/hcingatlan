@@ -8,6 +8,24 @@ public class DbInitializer
     {
         var johnId = Guid.Parse("6e9c8a58-94b5-4ae5-b525-bc19a834a4bc");
         var vanessaId = Guid.Parse("6b8a9fa1-d9ea-4f51-a0dc-25cb297c9ea9");
+        var johnPropertyIds = new[]
+        {
+            "1-5-001", "2-5-002", "4-5-004", "5-5-005", "6-5-006",
+            "7-5-007", "8-5-008", "9-5-009", "11-5-011", "14-5-014",
+            "15-5-015", "18-5-018"
+        };
+
+        var vanessaPropertyIds = new[]
+        {
+            "3-5-003", "10-5-010", "12-5-012", "13-5-013",
+            "16-5-016", "17-5-017"
+        };
+
+        var johnProperties = context.Properties
+            .Where(p => johnPropertyIds.Contains(p.PropertyId)).ToList();
+
+        var vanessaProperties = context.Properties
+            .Where(p => vanessaPropertyIds.Contains(p.PropertyId)).ToList();
         if (!context.Employees.Any())
         {
             var employees = new List<Employee>
@@ -21,14 +39,15 @@ public class DbInitializer
                     Phone = "+00 00 000 0000",
                     Email = "example@example.com",
                     Img =
-                        "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-2c30-61f7-887e-cb22647456ee/raw?se=2025-04-10T03%3A59%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=481919b7-007e-5c10-9067-4f297878bb4c&skoid=dfdaf859-26f6-4fed-affc-1befb5ac1ac2&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-10T02%3A32%3A37Z&ske=2025-04-11T02%3A32%3A37Z&sks=b&skv=2024-08-04&sig=N2WidNijWpJPv8BkhYt/ErP2lLCjwIIPSwN4hKBRGzg%3D",
+                        "https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/564a45be-4e5d-487c-b654-4a9205bab792/7df8cea9-f833-4182-91d3-91cba1c12255.png",
                     Description = @"Tisztelt Érdeklődő!
 Több mint 10 éves tapasztalattal a hátam mögött hivatásomnak tekintem az ingatlanközvetítést. A saját elképzeléseim megvalósítása és a hatékonyabb munkavégzés érdekében
 önálló vállalkozást alapítottam, melynek fő tevékenysége továbbra is az ingatlanközvetítés, csak egy kicsit másképp.
 Engem örömmel tölt el, ha azt látom, hogy a látszólag ellentétes érdeket képviselő felek a közreműködésemnek köszönhetően elégedetten állnak fel az asztaltól egy adásvételi vagy
 bérleti szerződés aláírását követően.
 Vallom, hogy elégedett ügyfelek nélkül nincs üzlet. Erre a szemléletre ösztönzöm kollégáimat is, akikkel a hét minden napján készséggel állunk rendelkezésére.
-Hívjon, és meglátja, hogy nem fog csalódni !"
+Hívjon, és meglátja, hogy nem fog csalódni !",
+                    Properties = johnProperties
                 },
                 new Employee
                 {
@@ -39,8 +58,9 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                     Phone = "+00 00 000 0000",
                     Email = "example@example.com",
                     Img =
-                        "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-2c30-61f7-887e-cb22647456ee/raw?se=2025-04-10T03%3A59%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=481919b7-007e-5c10-9067-4f297878bb4c&skoid=dfdaf859-26f6-4fed-affc-1befb5ac1ac2&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-10T02%3A32%3A37Z&ske=2025-04-11T02%3A32%3A37Z&sks=b&skv=2024-08-04&sig=N2WidNijWpJPv8BkhYt/ErP2lLCjwIIPSwN4hKBRGzg%3D",
-                    Description = ""
+                        "https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/564a45be-4e5d-487c-b654-4a9205bab792/7df8cea9-f833-4182-91d3-91cba1c12255.png",
+                    Description = "",
+                    Properties = vanessaProperties
                 },
                 new Employee
                 {
@@ -52,7 +72,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                     Email = "example@example.com",
                     Description = "",
                     Img =
-                        "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-2c30-61f7-887e-cb22647456ee/raw?se=2025-04-10T03%3A59%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=481919b7-007e-5c10-9067-4f297878bb4c&skoid=dfdaf859-26f6-4fed-affc-1befb5ac1ac2&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-10T02%3A32%3A37Z&ske=2025-04-11T02%3A32%3A37Z&sks=b&skv=2024-08-04&sig=N2WidNijWpJPv8BkhYt/ErP2lLCjwIIPSwN4hKBRGzg%3D",
+                        "https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/564a45be-4e5d-487c-b654-4a9205bab792/7df8cea9-f833-4182-91d3-91cba1c12255.png",
                 }
             };
             context.Employees.AddRange(employees);
@@ -698,6 +718,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                     ShortDescription = "Eladó apartman kiváló lokációval.",
                     City = "Budapest",
                     Street = "Hercegprímás Street",
+                    District = "District V",
                     TransactionType = "Sale",
                     PropertyType = "Apartman",
                     PropertyBuildType = "Brick",
@@ -706,6 +727,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                     Area = "SvábHegy",
                     Orientation = "NW",
                     YearOfConstruction = 2017,
+                    IsNew = true,
                     Ownership = "ownership",
                     MoveInDate = "within less then 3 month",
                     Conditions = "good",
@@ -751,6 +773,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                     Area = "Rózsadomb",
                     Orientation = "W",
                     YearOfConstruction = 1981,
+                    IsNew = false,
                     Ownership = "ownership",
                     MoveInDate = "within less then 3 month",
                     Conditions = "good",
@@ -776,6 +799,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                         "https://candyfoxstudio.com/media/Real%20estate/2.jpg"
                     },
                     Description = "Különleges befektetési lehetőség a belváros szívében!",
+                    Csok = true,
                 },
                 new Property
                 {
@@ -787,6 +811,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                     ShortDescription = "Eladó apartman kiváló lokációval.",
                     City = "Budapest",
                     Street = "Sas Street",
+                    District = "District V",
                     TransactionType = "Sale",
                     PropertyType = "Apartman",
                     PropertyBuildType = "Brick",
@@ -821,6 +846,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                         "https://candyfoxstudio.com/media/Real%20estate/2.jpg"
                     },
                     Description = "Különleges befektetési lehetőség a belváros szívében!",
+                    Csok = true,
                 },
                 new Property
                 {
@@ -831,6 +857,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                     Price = 175082983,
                     ShortDescription = "Tágas családi ház kerttel.",
                     City = "Budapest",
+                    District = "District I",
                     Street = "Sas Street",
                     TransactionType = "Sale",
                     PropertyType = "House",
@@ -865,6 +892,7 @@ Hívjon, és meglátja, hogy nem fog csalódni !"
                         "https://candyfoxstudio.com/media/Real%20estate/2.jpg"
                     },
                     Description = "Különleges befektetési lehetőség a belváros szívében!",
+                    Csok = false,
                 },
             };
             context.Properties.AddRange(properties);

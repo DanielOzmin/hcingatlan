@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
-import { Employee } from "../../dummyData"
+
 import "./TeamCard.css"
+import { Employee } from "../../Apis"
 
 type Props = {
     employee: Employee
@@ -8,6 +9,8 @@ type Props = {
 
 const TeamCard = ({employee}: Props) => {
     const navigate = useNavigate()
+
+    if(!employee) return
 
     const handleIntoduceClick = (id: string, name: string) => {
         navigate(`/team/${name}/${id}`)
@@ -20,7 +23,7 @@ const TeamCard = ({employee}: Props) => {
     return (
         <div className="team-card-container">
             <div>
-                <img src="/ExamplePic.webp" alt="Customer Image" className="team-card-img" />
+                <img src={employee.img} alt="Customer Image" className="team-card-img" />
             </div>
             <div className="team-card-details">
                 <h1>{employee.name}</h1>

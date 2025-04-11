@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
-import { Employee } from "../../dummyData"
 
 import "./AgentCard.css"
+import { Employee } from "../../Apis"
 
 type Props = {
     agent: Employee
@@ -15,9 +15,11 @@ const AgentCard = ({ agent }: Props) => {
         navigate(`/team/${name}/${id}`)
     }
 
+    if(!agent) return
+
     return (
         <div className="agent-card">
-            <img src="/ExamplePic.webp" alt="agent" />
+            <img src={agent.img} alt="agent" />
             <div className="agent-info">
                 <h1>{agent.name}</h1>
                 <p>{agent.position}</p>

@@ -3,7 +3,8 @@ import { faPhone, faAward } from "@fortawesome/free-solid-svg-icons"
 import { faEnvelope as falEnvelopeRegular } from "@fortawesome/free-regular-svg-icons"
 
 import "./EmployeeCard.css"
-import { Employee } from "../../dummyData"
+import { Employee } from "../../Apis"
+
 
 
 type Props = {
@@ -17,11 +18,13 @@ const EmployeeCard = ({ employee, textareaRef }: Props) => {
         textareaRef.current?.focus()
     }
 
+    if(!employee) return
+
     return (
         <div className="customer-card-container">
             <h2>Our Sales Associate</h2>
             <div className="customer-line"></div>
-            <img src="/ExamplePic.webp" alt="Customer image" />
+            <img src={employee.img} alt="Customer image" />
             <h3>{employee.name}</h3>
             <div className="customer-card-details">
                 <FontAwesomeIcon icon={faAward} />

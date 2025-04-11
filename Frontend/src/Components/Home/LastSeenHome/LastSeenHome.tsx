@@ -1,12 +1,16 @@
-import { useState } from "react"
-import properties from "../../../dummyData"
+import { useEffect, useState } from "react"
 import PropertyCard from "../Content/ProperyCard"
-
 import "./LastSeenHome.css"
+import { Property, fetchProperties } from "../../../Apis"
 
 
 const LastSeenHome = () => {
     const [startIndex, setStartIndex] = useState<number>(0)
+    const [properties, setProperties] = useState<Property[]>([])
+
+    useEffect(()=>{
+        fetchProperties(setProperties)
+    },[])
 
     const lastSeenRow = localStorage.getItem("lastSeen")
     const lastSeenIds = lastSeenRow ? JSON.parse(lastSeenRow) : []

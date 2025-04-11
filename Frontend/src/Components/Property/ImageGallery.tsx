@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { Property } from "../../dummyData"
 import ImageSlider from "./ImageSlider"
 import "./Property.css"
 import ImageModal from "./ImageModal"
+import { Property } from "../../Apis"
 
 type Props = {
     property: Property

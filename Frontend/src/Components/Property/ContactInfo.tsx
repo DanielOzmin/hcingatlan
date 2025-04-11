@@ -5,9 +5,8 @@ import { faPhone, faAward, faUser } from "@fortawesome/free-solid-svg-icons"
 import { faEnvelope as falEnvelopeRegular } from "@fortawesome/free-regular-svg-icons"
 
 import "./ContactInfo.css"
-import { Employee, Property } from "../../dummyData"
 import PrivacyPolicyModal from "../PrivacyPolicy/PrivacyPolicyModal"
-import { SendMessage } from "../../Apis"
+import { Employee, Property, SendMessage } from "../../Apis"
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY
 
@@ -21,6 +20,7 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
     const recaptchaRef = useRef<ReCAPTCHA>(null)
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
     const [IsModalOpen, setIsModalOpen] = useState<boolean>(false)
+    if(!employee) return
     const [formData, setFormData] = useState({
         employeeId: `${employee.id}`,
         name: "",
@@ -62,7 +62,7 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
                 <div className="contact-info-card">
                     <h1>Contact Info</h1>
                     <div className="contact-info-row">
-                        <img src="/ExamplePic.webp" alt="agent" />
+                        <img src={employee.img} alt="agent" />
                         <div className="contact-info-text">
                             <div className="contact-info-details">
                                 <FontAwesomeIcon icon={faUser} />

@@ -17,7 +17,8 @@ export type MessageFormData = {
     message: string,
     termsAccepted: boolean,
     employeeId?: string | null,
-    recaptchaToken?: string | null
+    recaptchaToken?: string | null,
+    propertyId?: string
 }
 
 export type Property = {
@@ -108,7 +109,7 @@ export const SendMessage = async (data: MessageFormData) => {
 
 export const SearchFromBar = async (search: Search) => {
     try {
-        const response = await fetch("api/Property/search", {
+        const response = await fetch("/api/Property/search", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(search)
@@ -128,7 +129,7 @@ export const SearchFromBar = async (search: Search) => {
 
 export const fetchProperties = async (setProperties: (props: Property[]) => void) => {
     try {
-        const response = await fetch("api/Property")
+        const response = await fetch("/api/Property")
         if (!response.ok) throw new Error("Can't fecth properties")
         const data = await response.json()
         setProperties(data)
@@ -151,6 +152,7 @@ export const fetchPropertyById = async (setProperty: (props: Property) => void, 
 }
 
 export const fetchEmployeeById = async (id: string, setEmployee: (props: Employee) => void) => {
+    if(!id) return
     try {
         const response = await fetch(`/api/Employee/${id}`)
         if (!response.ok) throw new Error("Can't get employee by id")
@@ -164,7 +166,7 @@ export const fetchEmployeeById = async (id: string, setEmployee: (props: Employe
 
 export const fetchAllEmployee = async (setEmployees: (props: Employee[]) => void) => {
     try {
-        const response = await fetch("api/Employee")
+        const response = await fetch("/api/Employee")
         if (!response.ok) throw new Error("Can't load employees")
         const data = await response.json()
         setEmployees(data)
@@ -176,7 +178,7 @@ export const fetchAllEmployee = async (setEmployees: (props: Employee[]) => void
 
 export const fetchPropertiesBySearch = async (setProperties: (props: Property[])=> void, search: Search) => {
     try {
-        const response = await fetch("api/Property/search", {
+        const response = await fetch("/api/Property/search", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(search)

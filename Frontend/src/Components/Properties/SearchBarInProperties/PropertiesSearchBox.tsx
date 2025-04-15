@@ -3,7 +3,7 @@ import "./PropertiesSearchBox.css"
 import DropDownInProperties from "./DropDownInProperties"
 import PropertyMinMax from "./PropertyMinMax"
 import SelectDropDown from "./SelectDropDown"
-import { Property, Search, SearchFromBar, fetchPropertiesBySearch } from "../../../Apis"
+import { Property, Search, fetchPropertiesBySearch } from "../../../Apis"
 
 const homeTypes: string[] = ["Apartman", "House", "Land", "Rental space"]
 const locations: string[] = [
@@ -57,6 +57,7 @@ const PropertiesSearchBox = ({setProperties}: Props ) => {
 
     const handleSearchClick = () => {
         fetchPropertiesBySearch(setProperties,search)
+        console.log(search)
     }
 
     return (
@@ -117,7 +118,7 @@ const PropertiesSearchBox = ({setProperties}: Props ) => {
 
                 <SelectDropDown
                     title="--- CSOK PLUS ---"
-                    options={["CSOK PLUS important", "CSOK PLUS Does not matter"]}
+                    options={["CSOK PLUS: Yes", "CSOK PLUS: No"]}
                     setSearch={setSearch}
                     fieldKey="loan" 
                 />

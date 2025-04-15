@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Properties/>
       },
       {
-        path: "search/:city/:district",
+        path: `search/:city/:district`,
         element: <Properties/>
       }
     ]
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: ":employee/:id",
         element: <EmployeePage/>,
-    },
+      },
   ]
   },
   {

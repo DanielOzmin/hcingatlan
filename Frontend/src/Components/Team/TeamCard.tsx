@@ -40,7 +40,7 @@ const TeamCard = ({employee}: Props) => {
                 </div>
                 <div className="team-card-buttons">
                     <button className="team-card-introducing-button" onClick={()=>handleIntoduceClick(employee.publicId,employee.name)}>Introducing</button>
-                    <button className="team-card-properties-button" onClick={()=>handlePropertiesClick(employee.publicId)}>Properties ({employee.properties?.length})</button>
+                    {employee.properties != undefined && employee.properties?.length > 0 && <button className="team-card-properties-button" onClick={()=>handlePropertiesClick(employee.publicId)}>Properties ({employee.properties?.length})</button>}
                 </div>
 
             </div>

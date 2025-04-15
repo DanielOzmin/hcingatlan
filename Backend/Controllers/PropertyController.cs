@@ -16,13 +16,13 @@ public class PropertyController : ControllerBase
     {
         _context = context;
     }
-    
+
     // get all, get by id, get by search
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Property>>> GetProperties()
     {
         var properties = await _context.Properties.ToListAsync();
-        if(properties == null) return NotFound();
+        if (properties == null) return NotFound();
         return properties;
     }
 
@@ -30,7 +30,7 @@ public class PropertyController : ControllerBase
     public async Task<ActionResult<Property>> GetPropertyById(Guid id)
     {
         var property = await _context.Properties.FindAsync(id);
-        if(property == null) return NotFound();
+        if (property == null) return NotFound();
         return property;
     }
 
@@ -59,7 +59,7 @@ public class PropertyController : ControllerBase
                 }
                 else
                 {
-                    cities.Add(loc); 
+                    cities.Add(loc);
                 }
             }
 
@@ -71,14 +71,16 @@ public class PropertyController : ControllerBase
         if (!string.IsNullOrEmpty(search.TypedId))
             query = query.Where(p => p.PropertyId == search.TypedId);
 
-        if (search.MinPrice.HasValue)
-            query = query.Where(p => p.Price >= search.MinPrice.Value);
+        var multiplier = search.SelectedCategory == "Rent" ? 1000 : 1000000;
 
+        if (search.MinPrice.HasValue) 
+            query = query.Where(p => p.Price >= search.MinPrice.Value * multiplier);
+        
         if (search.MaxPrice.HasValue)
-            query = query.Where(p => p.Price <= search.MaxPrice.Value);
-
+            query = query.Where(p => p.Price <= search.MaxPrice.Value * multiplier);
+        
         if (search.MinFloorArea.HasValue)
-            query = query.Where(p => p.FloorArea >= search.MinFloorArea.Value);
+                query = query.Where(p => p.FloorArea >= search.MinFloorArea.Value);
 
         if (search.MaxFloorArea.HasValue)
             query = query.Where(p => p.FloorArea <= search.MaxFloorArea.Value);
@@ -88,7 +90,7 @@ public class PropertyController : ControllerBase
 
         if (search.MaxRoomNumber.HasValue)
             query = query.Where(p => p.Rooms <= search.MaxRoomNumber.Value);
-        
+
         if (search.Loan.Count > 0)
         {
             if (search.Loan.Contains("CSOK PLUS: Yes") && !search.Loan.Contains("CSOK PLUS: No"))
@@ -100,12 +102,12 @@ public class PropertyController : ControllerBase
                 query = query.Where(p => p.Csok == false);
             }
         }
-        
+
         if (!string.IsNullOrEmpty(search.BuildType))
         {
-            if (search.BuildType.ToLower() == "new")
+            if (search.BuildType == "New construction")
                 query = query.Where(p => p.IsNew == true);
-            else if (search.BuildType.ToLower() == "used")
+            else if (search.BuildType == "Resale")
                 query = query.Where(p => p.IsNew == false);
         }
 

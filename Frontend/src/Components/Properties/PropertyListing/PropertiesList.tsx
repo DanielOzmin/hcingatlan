@@ -6,41 +6,61 @@ import { FaTh, FaList } from "react-icons/fa"
 import PropertyCardList from "./PropertyCardList"
 import FilterDropdown from "./FilterDropdown"
 import { useParams } from "react-router-dom"
-import { Property, fetchProperties } from "../../../Apis"
+import { Employee, Property, fetchEmployeeById, fetchProperties } from "../../../Apis"
 
 
 type View = "grid" | "list"
 type OrderBy = "dateUp" | "dateDown" | "priceUp" | "priceDown"
 
 type Props = {
-    setProperties: React.Dispatch<React.SetStateAction<Property[]>>
-    properties: Property[]
+  setProperties: React.Dispatch<React.SetStateAction<Property[]>>
+  properties: Property[]
+  id?: string
 }
 
-const PropertiesList = ({properties, setProperties} : Props) => {
+const PropertiesList = ({ properties, setProperties, id }: Props) => {
   const [current, setCurrent] = useState<Property[]>([])
+  const [filteredProperties, setFilteredProperties] = useState<Property[]>([])
   const [view, setView] = useState<View>("grid")
   const [orderBy, setOrderBy] = useState<OrderBy>("dateUp")
+  const [employee, setEmployee] = useState<Employee>()
   const { employeeId, count, city, district } = useParams<{ employeeId?: string, count?: string, city?: string, district?: string }>()
 
   useEffect(() => {
+
     fetchProperties(setProperties)
+
   }, [])
+
+  useEffect(() => {
+
+    if (employeeId) {
+      fetchEmployeeById(employeeId, setEmployee)
+    } else if (id) {
+      fetchEmployeeById(id, setEmployee)
+    }
+  }, [employeeId, id])
+
 
   useEffect(() => {
     let filtered = properties
 
-    if (employeeId) {
-      filtered = filtered.filter(p => p.employeeId === employeeId)
+    if (employee) {
+
+      filtered = filtered.filter(p => p.employeeId === employee.id)
+
     } else if (count) {
+
       const stored = localStorage.getItem("favorites")
       const favorites = stored ? JSON.parse(stored) : []
 
       filtered = properties.filter(p => favorites.includes(p.id))
+
     } else if (city && district) {
+
       filtered = properties.filter(
         (p) =>
-          p.city.toLowerCase() === city.toLowerCase() &&
+          p.city.toLowerCase() === city.toLowerCase() && p.district &&
           p.district.toLowerCase().replace("district ", "") === district.toLowerCase()
       )
     }
@@ -61,6 +81,7 @@ const PropertiesList = ({properties, setProperties} : Props) => {
     }
 
     setCurrent(filtered)
+    setFilteredProperties(filtered)
   }, [orderBy, properties, employeeId, count, city, district])
 
 
@@ -68,7 +89,7 @@ const PropertiesList = ({properties, setProperties} : Props) => {
     <div className="list-container">
       <div className="list-header">
         <div>
-          <h1>Properties: {current.length} found.</h1>
+          <h1>Properties: {filteredProperties.length} found.</h1>
         </div>
         <div className="list-filters">
           <div>Order by:
@@ -86,7 +107,7 @@ const PropertiesList = ({properties, setProperties} : Props) => {
             <PropertyCardList key={index} property={property} />
         )}
       </div>
-      <Pagination properties={properties} setCurrent={setCurrent} />
+      <Pagination current={filteredProperties} setCurrent={setCurrent} />
     </div>
   )
 }

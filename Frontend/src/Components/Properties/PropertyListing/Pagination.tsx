@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react"
-import { Property } from "../../../dummyData"
 
 import "./Pagination.css"
+import { Property } from "../../../Apis"
 
 type Props = {
-    properties: Property[],
+    current: Property[],
     setCurrent: React.Dispatch<React.SetStateAction<Property[]>>
 }
 
-const Pagination = ({ properties, setCurrent }: Props) => {
+const Pagination = ({ current, setCurrent }: Props) => {
     const [currentPage, setCurrentPage] = useState<number>(1)
 
 
     const propertiesPerPage = 12
-    const totalPages = Math.ceil(properties.length / propertiesPerPage) 
+    const totalPages = Math.ceil(current.length / propertiesPerPage) 
 
     const cuttingStartIndex = (currentPage - 1) * propertiesPerPage
     const cuttingPerPage = currentPage * propertiesPerPage
 
     useEffect(() => {
-        setCurrent(properties.slice(cuttingStartIndex, cuttingPerPage))
-    }, [currentPage, properties])
+        setCurrent(current.slice(cuttingStartIndex, cuttingPerPage))
+    }, [currentPage, current])
 
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber)

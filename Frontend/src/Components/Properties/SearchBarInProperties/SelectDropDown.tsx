@@ -43,21 +43,18 @@ const SelectDropDown = ({ title, options, setSearch, fieldKey }: Props) => {
     }, [])
 
     const toggleOption = (option: string) => {
-        if (selectedValue == option) {
-            setSelectedValue("")
-            setIsOpen(false)
-        } else {
-            setSelectedValue(option)
-            setIsOpen(false)
-        }
-        if (fieldKey == "loan") {
+        const isReset = selectedValue === option
+        const newValue = isReset ? "" : option
 
-        } else {
-            setSearch(prevSearch => ({
-                ...prevSearch, [fieldKey]: selectedValue
-            }))
-        }
+        setSelectedValue(newValue);
+        setIsOpen(false);
 
+        setSearch(prevSearch => ({
+            ...prevSearch,
+            [fieldKey]: fieldKey === "loan"
+                ? (isReset ? [] : [option])
+                : newValue
+        }))
     }
 
     return (

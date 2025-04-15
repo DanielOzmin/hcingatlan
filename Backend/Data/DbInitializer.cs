@@ -8,24 +8,6 @@ public class DbInitializer
     {
         var johnId = Guid.Parse("6e9c8a58-94b5-4ae5-b525-bc19a834a4bc");
         var vanessaId = Guid.Parse("6b8a9fa1-d9ea-4f51-a0dc-25cb297c9ea9");
-        var johnPropertyIds = new[]
-        {
-            "1-5-001", "2-5-002", "4-5-004", "5-5-005", "6-5-006",
-            "7-5-007", "8-5-008", "9-5-009", "11-5-011", "14-5-014",
-            "15-5-015", "18-5-018"
-        };
-
-        var vanessaPropertyIds = new[]
-        {
-            "3-5-003", "10-5-010", "12-5-012", "13-5-013",
-            "16-5-016", "17-5-017"
-        };
-
-        var johnProperties = context.Properties
-            .Where(p => johnPropertyIds.Contains(p.PropertyId)).ToList();
-
-        var vanessaProperties = context.Properties
-            .Where(p => vanessaPropertyIds.Contains(p.PropertyId)).ToList();
         if (!context.Employees.Any())
         {
             var employees = new List<Employee>
@@ -46,8 +28,7 @@ Több mint 10 éves tapasztalattal a hátam mögött hivatásomnak tekintem az i
 Engem örömmel tölt el, ha azt látom, hogy a látszólag ellentétes érdeket képviselő felek a közreműködésemnek köszönhetően elégedetten állnak fel az asztaltól egy adásvételi vagy
 bérleti szerződés aláírását követően.
 Vallom, hogy elégedett ügyfelek nélkül nincs üzlet. Erre a szemléletre ösztönzöm kollégáimat is, akikkel a hét minden napján készséggel állunk rendelkezésére.
-Hívjon, és meglátja, hogy nem fog csalódni !",
-                    Properties = johnProperties
+Hívjon, és meglátja, hogy nem fog csalódni !"
                 },
                 new Employee
                 {
@@ -60,7 +41,6 @@ Hívjon, és meglátja, hogy nem fog csalódni !",
                     Img =
                         "https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/564a45be-4e5d-487c-b654-4a9205bab792/7df8cea9-f833-4182-91d3-91cba1c12255.png",
                     Description = "",
-                    Properties = vanessaProperties
                 },
                 new Employee
                 {

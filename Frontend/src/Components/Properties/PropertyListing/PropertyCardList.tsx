@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons"
 
-import { Property } from "../../../dummyData"
 import { formatNumber } from "../../../Services/format"
 import { useState } from "react"
+import { Property } from "../../../Apis"
 
 type Props = {
     property: Property

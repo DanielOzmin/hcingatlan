@@ -27,7 +27,8 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
         email: "",
         phone: "",
         message: `Dear Sales Associate,\nI am contacting you regarding the property with listing ID #${property.propertyId}.`,
-        termsAccepted: false
+        termsAccepted: false,
+        propertyId: `${property.id}`
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

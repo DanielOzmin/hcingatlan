@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { Property } from "../../../dummyData"
+import { Property } from "../../../Apis"
 
 type Props = {
     property: Property

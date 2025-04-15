@@ -30,5 +30,9 @@ public class ApplicationDbContext : DbContext
             .WithMany()
             .HasForeignKey(m => m.PropertyId);
         
+        modelBuilder.Entity<Property>()
+            .HasOne(p => p.Employee)
+            .WithMany(e => e.Properties)
+            .HasForeignKey(p => p.EmployeeId);
     }
 }

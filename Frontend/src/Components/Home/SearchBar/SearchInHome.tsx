@@ -61,7 +61,9 @@ const SearchInHome = ({setProperties} : Props) => {
 
     const handleClick = () => {
         fetchPropertiesBySearch(setProperties, search)
+        console.log(search)
     }
+
 
     return (
         <div className="search-container">

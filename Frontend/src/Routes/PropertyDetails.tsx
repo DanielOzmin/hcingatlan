@@ -7,6 +7,8 @@ import ContactInfo from "../Components/Property/ContactInfo"
 import { useEffect, useRef, useState } from "react"
 import EmployeeCard from "../Components/Employee/EmployeeCard"
 import { Employee, Property, fetchEmployeeById, fetchPropertyById } from "../Apis"
+import PropertyGoogleMaps from "../Components/Property/PropertyGoogleMaps"
+import { convertDistrict } from "../Services/convertDistrict"
 
 
 const PropertyDetails = () => {
@@ -92,7 +94,7 @@ const PropertyDetails = () => {
                     </div>
                     <div>
                         <div className="info-title">Listing Id</div>
-                        <p>{property.id}</p>
+                        <p>{property.propertyId}</p>
                     </div>
 
                 </div>
@@ -116,7 +118,7 @@ const PropertyDetails = () => {
                         )}
                     </div>
                 </div>
-                <div className="google-map">Google maps HERE!!!</div>
+                <PropertyGoogleMaps city={property.city} street={property.street} district={convertDistrict(property.district)}/>
                 <ContactInfo property={property} employee={employee} textareaRef={textareaRef} />
 
 

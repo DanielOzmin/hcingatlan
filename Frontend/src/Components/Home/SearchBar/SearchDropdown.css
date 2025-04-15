@@ -1,18 +1,19 @@
 .dropdown-container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     position: relative;
-    width: 200px;
+    width: 230px;
 }
 
 .dropdown button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
     background: white;
     cursor: pointer;
     text-align: left;
+    font-size: 17px;
 }
 
 .dropdown-menu {
@@ -20,8 +21,8 @@
     width: 100%;
     background: white;
     border: 1px solid #ccc;
-    padding: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 6px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
     z-index: 10;
 }
 
@@ -29,9 +30,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
+    padding: 6px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 21px;
 }
 
 .dropdown-item:hover {
@@ -39,22 +40,23 @@
 }
 
 .option-text {
-    flex-grow: 1; 
-    font-size: 18px;
+    flex-grow: 1;
+    font-size: 21px;
 }
 
 .checkmark {
-    margin-left: 10px; 
-    color: black; 
+    margin-left: 12px;
+    color: black;
     font-weight: bold;
 }
 
 .dropdown-input {
-    padding: 5px;
+    padding: 6px;
 }
 
 .dropdown-input input {
     width: 95%;
-    padding: 5px;
+    padding: 6px;
     border: 1px solid #ccc;
+    font-size: 16px;
 }

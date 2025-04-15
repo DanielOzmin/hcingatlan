@@ -18,3 +18,8 @@
 .share-like-print-icons:hover{
     color: #d3b325;
 }
+
+.shares{
+    display:flex;
+    margin-top: 30px;
+}

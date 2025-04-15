@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./SearchDropdown.css"
 
 type Props = {
@@ -20,12 +20,27 @@ const SearchDropdown=({ options, selectedValues, setSelectedValues, hasInput }: 
         )
     }
 
+    const dropdownRef = useRef<HTMLDivElement>(null)
+
+    
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsOpen(false)
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [])
+
  
 
     const filteredOptions = customInput === undefined ? options : options.filter((option)=> option.toLowerCase().includes(customInput.toLowerCase()))
 
     return (
-        <div className="dropdown-container">
+        <div className="dropdown-container" ref={dropdownRef}>
             <div className="dropdown">
                 <button onClick={() => setIsOpen(!isOpen)}>
                     {selectedValues.length > 0 ? selectedValues.join(", ") : "Select..."}

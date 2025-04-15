@@ -25,7 +25,8 @@ type Props = {
 const PropertyMinMax = ({ label, fieldKeys, setSearch, unitOfMeasurement }: Props) => {
 
     const handleChange = (key: keyof Search, value: number) => {
-        setSearch((prev) => ({ ...prev, [key]: value }))
+        let finalValue = value === 0 ? null : value
+        setSearch((prev) => ({ ...prev, [key]: finalValue }))
     }
 
     return (

@@ -1,30 +1,40 @@
 import { useParams } from "react-router-dom"
-import { employees } from "../../dummyData"
+
 
 import "./EmployeePageDescription.css"
+import { useEffect, useState } from "react"
+import { Employee,  fetchEmployeeById } from "../../Apis"
 
 
 const EmployeePageDescription = () => {
     const { id } = useParams<{ id: string }>()
+    const [employee, setEmployee] = useState<Employee>()
+    
+    if(!id) return
 
-    const customer = employees.find(e => e.publicId == id)
+    useEffect(()=>{
+        fetchEmployeeById(id, setEmployee)
+    },[id])
+
+    if(!employee) return
+
 
     return (
         <div>
             <div className="agent-card-container">
                 <div className="agent-card-header">
-                    <img src="/ExamplePic.webp" alt={customer?.name} />
+                    <img src="/ExamplePic.webp" alt={employee.name} />
                     <div className="agent-card-header-info">
-                        <h1>{customer?.name}</h1>
-                        <p>{customer?.position}</p>
+                        <h1>{employee.name}</h1>
+                        <p>{employee.position}</p>
                         <div className="team-card-info">
                             <div>
                                 <label>Phone:</label>
-                                <span>{customer?.phone}</span>
+                                <span>{employee.phone}</span>
                             </div>
                             <div>
                                 <label>Email:</label>
-                                <span>{customer?.email}</span>
+                                <span>{employee.email}</span>
                             </div>
                         </div>
                     </div>
@@ -33,7 +43,7 @@ const EmployeePageDescription = () => {
                     Description
                 </div>
                 <div className="agent-description">
-                    {customer?.description}
+                    {employee.description}
                 </div>
             </div>
 

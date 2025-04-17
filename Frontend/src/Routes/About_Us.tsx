@@ -6,9 +6,11 @@ import Highlight from "../Components/DefaultHighLight/Highlights"
 import Header from "../Components/Header/Header"
 import "./RoutesCSS/AboutUs.css"
 import { Employee, fetchAllEmployee } from "../Apis"
+import { useTranslation } from "react-i18next"
 
 const AboutUs = () => {
     const [employees, setEmployees] = useState<Employee[]>([]) 
+    const { t } = useTranslation()
 
     useEffect(()=>{
         
@@ -19,7 +21,7 @@ const AboutUs = () => {
     return (
         <>
             <Header />
-            <Highlight title="About Us" />
+            <Highlight title={t("About")} />
             <AboutUsFixIntroduction />
             <IntroductionHighLight />
             <div className="agent-list">

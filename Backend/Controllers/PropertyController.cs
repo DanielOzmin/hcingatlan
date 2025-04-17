@@ -17,7 +17,6 @@ public class PropertyController : ControllerBase
         _context = context;
     }
 
-    // get all, get by id, get by search
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Property>>> GetProperties()
     {
@@ -38,6 +37,13 @@ public class PropertyController : ControllerBase
     public async Task<ActionResult<IEnumerable<Property>>> GetPropertiesBySearch([FromBody] PropertySearchDto search)
     {
         var query = _context.Properties.AsQueryable();
+        
+        if (search.MinPrice < 0) search.MinPrice = null;
+        if (search.MaxPrice < 0) search.MaxPrice = null;
+        if (search.MinFloorArea < 0) search.MinFloorArea = null;
+        if (search.MaxFloorArea < 0) search.MaxFloorArea = null;
+        if (search.MinRoomNumber < 0) search.MinRoomNumber = null;
+        if (search.MaxRoomNumber < 0) search.MaxRoomNumber = null;
 
         if (!string.IsNullOrEmpty(search.SelectedCategory))
             query = query.Where(p => p.TransactionType == search.SelectedCategory);
@@ -52,10 +58,9 @@ public class PropertyController : ControllerBase
 
             foreach (var loc in search.Location)
             {
-                if (loc.Contains("District") && loc.Contains("–"))
+                if (loc.StartsWith("District "))
                 {
-                    var roman = loc.Split('–')[1].Trim();
-                    districts.Add($"District {roman}");
+                    districts.Add(loc);
                 }
                 else
                 {
@@ -63,9 +68,25 @@ public class PropertyController : ControllerBase
                 }
             }
 
-            query = query.Where(p =>
-                (districts.Count == 0 || districts.Contains(p.District)) ||
-                (cities.Count == 0 || cities.Contains(p.City)));
+            if (districts.Count > 0 && cities.Count > 0)
+            {
+                query = query.Where(p =>
+                    (p.District != null && districts.Contains(p.District)) ||
+                    (p.City != null && cities.Contains(p.City))
+                );
+            }
+            else if (districts.Count > 0)
+            {
+                query = query.Where(p =>
+                    p.District != null && districts.Contains(p.District)
+                );
+            }
+            else if (cities.Count > 0)
+            {
+                query = query.Where(p =>
+                    p.City != null && cities.Contains(p.City)
+                );
+            }
         }
 
         if (!string.IsNullOrEmpty(search.TypedId))

@@ -1,7 +1,7 @@
-const FamousLocations = () => {
+const FamousLocations = ({t} :any) => {
     return (
         <div className="footer-section">
-            <h4>Famous Locations</h4>
+            <h4>{t("Famous_locations")}</h4>
             <ul >
                 <li><span className="arrow">›</span><a href="/properties/search/budapest/iii">Budapest, District III</a></li>
                 <li><span className="arrow">›</span><a href="/properties/search/budapest/xi">Budapest, District XI</a></li>

@@ -4,6 +4,7 @@ import { faEnvelope as falEnvelopeRegular } from "@fortawesome/free-regular-svg-
 
 import "./EmployeeCard.css"
 import { Employee } from "../../Apis"
+import { useTranslation } from "react-i18next"
 
 
 
@@ -13,6 +14,7 @@ type Props = {
 }
 
 const EmployeeCard = ({ employee, textareaRef }: Props) => {
+    const { t } = useTranslation()
     const handleJumpToTextarea = () => {
         textareaRef.current?.scrollIntoView({ behavior: "smooth" })
         textareaRef.current?.focus()
@@ -22,7 +24,7 @@ const EmployeeCard = ({ employee, textareaRef }: Props) => {
 
     return (
         <div className="customer-card-container">
-            <h2>Our Sales Associate</h2>
+            <h2>{t("Our_sales_associate")}</h2>
             <div className="customer-line"></div>
             <img src={employee.img} alt="Customer image" />
             <h3>{employee.name}</h3>
@@ -38,7 +40,7 @@ const EmployeeCard = ({ employee, textareaRef }: Props) => {
                 <FontAwesomeIcon icon={falEnvelopeRegular} />
                 <span>{employee.email}</span>
             </div>
-            <button onClick={handleJumpToTextarea}>Send message</button>
+            <button onClick={handleJumpToTextarea}>{t("Send_message")}</button>
         </div>
     )
 }

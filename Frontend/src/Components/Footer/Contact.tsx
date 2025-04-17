@@ -1,7 +1,7 @@
-const Contact = () => {
+const Contact = ({t} :any) => {
     return (
         <div className="footer-section">
-            <h4>Contact</h4>
+            <h4>{t("Contact")}</h4>
             <p>📍 1111 Budapest, exmaple street, 99</p>
             <p>📞 +00 (00) 000 0000</p>
             <p>📧 <a href="mailto:info@example.com">info@example.com</a></p>

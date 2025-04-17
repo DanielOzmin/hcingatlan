@@ -7,6 +7,7 @@ import "./PropertyCard.css"
 import { formatNumber } from "../../../Services/format"
 import { useState } from "react"
 import { Property } from "../../../Apis"
+import { useTranslation } from "react-i18next"
 
 type Props = {
     property: Property
@@ -14,6 +15,7 @@ type Props = {
 
 const PropertyCard = ({ property }: Props) => {
     const navigate = useNavigate()
+    const {t} = useTranslation()
     const [isFavorite, setIsFavorite] = useState<boolean>(() => {
         const favorites: string[] = JSON.parse(localStorage.getItem("favorites") || "[]")
         return favorites.includes(property.id)
@@ -65,7 +67,7 @@ const PropertyCard = ({ property }: Props) => {
                     <img src={property.img[0]} alt="img-icon" />
                 )}
                 <span className="status">
-                    {property.transactionType}
+                    {t(property.transactionType)}
                 </span>
                 <span className="img-count">
                     {property.img && property.img.length > 0 && (
@@ -82,19 +84,19 @@ const PropertyCard = ({ property }: Props) => {
                 <div className="price-container">
                     <span className="price">{formatNumber(property.price)}</span><span className="currency"> Ft</span>
                 </div>
-                <span className="property-type">{property.propertyType}</span>
+                <span className="property-type">{t(property.propertyType)}</span>
             </div>
             <div className="property-features">
                 <div className="property-box">
-                    <p className="feature-label">SIZE</p>
+                    <p className="feature-label">{t("SIZE")}</p>
                     <p className="feature-value">{property.floorArea}m²</p>
                 </div>
                 <div className="property-box">
-                    {property.propertyType == "House" ? <p className="feature-label">PARCEL</p> : <p className="feature-label">FLOOR</p> }
-                    {property.propertyType == "House" ? <p className="feature-value">{property.parcel}</p> : <p className="feature-value">{property.floor}</p>}
+                    {property.propertyType == "House" ? <p className="feature-label">{t("PARCEL")}</p> : <p className="feature-label">{t("FLOOR")}</p> }
+                    {property.propertyType == "House" ? <p className="feature-value">{property.parcel}m²</p> : <p className="feature-value">{property.floor}</p>}
                 </div>
                 <div className="property-box">
-                    <p className="feature-label">ROOM</p>
+                    <p className="feature-label">{t("ROOM")}</p>
                     <p className="feature-value">{property.rooms}</p>
                 </div>
                 <FontAwesomeIcon onClick={handleFavorite} icon={isFavorite ? faHeartSolid : faHeartRegular} className={`card-heart ${isFavorite ? "favorite" : ""}`} size="2x" />

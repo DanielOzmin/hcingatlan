@@ -1,5 +1,5 @@
-backend/obj/
-backend/bin/
+obj/
+bin/
 
 frontend/node_modules/
 frontend/dist/

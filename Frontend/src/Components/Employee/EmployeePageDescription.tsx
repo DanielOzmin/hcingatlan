@@ -3,20 +3,22 @@ import { useParams } from "react-router-dom"
 
 import "./EmployeePageDescription.css"
 import { useEffect, useState } from "react"
-import { Employee,  fetchEmployeeById } from "../../Apis"
+import { Employee, fetchEmployeeById } from "../../Apis"
+import { useTranslation } from "react-i18next"
 
 
 const EmployeePageDescription = () => {
     const { id } = useParams<{ id: string }>()
     const [employee, setEmployee] = useState<Employee>()
-    
-    if(!id) return
+    const { t } = useTranslation()
 
-    useEffect(()=>{
+    if (!id) return
+
+    useEffect(() => {
         fetchEmployeeById(id, setEmployee)
-    },[id])
+    }, [id])
 
-    if(!employee) return
+    if (!employee) return
 
 
     return (
@@ -29,22 +31,25 @@ const EmployeePageDescription = () => {
                         <p>{employee.position}</p>
                         <div className="team-card-info">
                             <div>
-                                <label>Phone:</label>
+                                <label>{t("Phone")}:</label>
                                 <span>{employee.phone}</span>
                             </div>
                             <div>
-                                <label>Email:</label>
+                                <label>{t("Email")}:</label>
                                 <span>{employee.email}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="agent-description-title">
-                    Description
-                </div>
-                <div className="agent-description">
-                    {employee.description}
-                </div>
+                {employee.description && <>
+                    <div className="agent-description-title">
+                        {t("Introducing")}
+                    </div>
+                    <div className="agent-description">
+                        {employee.description}
+                    </div>
+                </>}
+
             </div>
 
 

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { Property } from "../../../Apis"
+import { useTranslation } from "react-i18next"
 
 type Props = {
     property: Property
@@ -7,6 +8,7 @@ type Props = {
 
 const LastSeenPropertiesCard = ({ property }: Props) => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     const handlePropertyClick = (id: string, city: string, district: string, propertyType: string, street: string) => {
         const storeId = localStorage.getItem("lastSeen")
@@ -26,8 +28,8 @@ const LastSeenPropertiesCard = ({ property }: Props) => {
                 <img src={property.img[0]} alt="property-img" />
             )}
             <div className="last-seen-info" onClick={() => handlePropertyClick(property.id, property.city, property.district, property.propertyType, property.street)}>
-                <h1>{property.transactionType} {property.propertyType}</h1>
-                <h1>{property.city} {property.district ? property.district : "" }</h1>
+                <h1>{t(property.transactionType)} {t(property.propertyType)}</h1>
+                <h1>{property.city} {property.district ? property.district : ""}</h1>
                 <p>{property.price.toLocaleString()} Ft</p>
             </div>
         </div>

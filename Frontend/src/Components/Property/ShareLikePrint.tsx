@@ -5,6 +5,7 @@ import { useState } from "react"
 import ShareComponent from "./ShareComponent"
 
 import "./ShareLikePrint.css"
+import { useTranslation } from "react-i18next"
 
 
 type Props = {
@@ -12,6 +13,7 @@ type Props = {
 }
 
 const ShareLikePrint = ({ favId }: Props) => {
+    const { t } = useTranslation()
     const [showShare, setShowShare] = useState<boolean>(false)
     const [isFavorite, setIsFavorite] = useState<boolean>(() => {
         const favorites: string[] = JSON.parse(localStorage.getItem("favorites") || "[]")
@@ -51,15 +53,15 @@ const ShareLikePrint = ({ favId }: Props) => {
         <div className="share-like-print-container">
             <div className="share-like-print-icons" onClick={handlePrint}>
                 <FontAwesomeIcon icon={faPrint} size="2x" />
-                <p>Print</p>
+                <p>{t("Print")}</p>
             </div>
             <div className="share-like-print-icons" onClick={handleFavorite}>
                 <FontAwesomeIcon icon={isFavorite ? faHeartSolid : faHeartRegular} className={`heart ${isFavorite ? "favorite" : ""}`} size="2x" />
-                <p>Favorite</p>
+                <p>{t("Favorite")}</p>
             </div>
             <div className="share-like-print-icons" onClick={handleShare}>
                 <FontAwesomeIcon icon={faShareNodes} size="2x" />
-                <p>Share</p>
+                <p>{t("Share")}</p>
                 {showShare && <ShareComponent />}
             </div>
         </div>

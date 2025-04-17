@@ -2,11 +2,13 @@ import { useEffect, useState } from "react"
 import PropertyCard from "../Content/ProperyCard"
 import "./LastSeenHome.css"
 import { Property, fetchProperties } from "../../../Apis"
+import { useTranslation } from "react-i18next"
 
 
 const LastSeenHome = () => {
     const [startIndex, setStartIndex] = useState<number>(0)
     const [properties, setProperties] = useState<Property[]>([])
+    const { t } = useTranslation()
 
     useEffect(()=>{
         fetchProperties(setProperties)
@@ -34,7 +36,7 @@ const LastSeenHome = () => {
 
     return (
         <div className="last-seen-home">
-            <h1>Last Seen</h1>
+            <h1>{t("Last_seen")}</h1>
             <div className="last-seen-carousel">
                 <button className="nav-button left"  onClick={handlePrev} disabled={startIndex === 0}>{'<'}</button>
                 <div className="last-seen-cards">

@@ -7,6 +7,7 @@ import { faEnvelope as falEnvelopeRegular } from "@fortawesome/free-regular-svg-
 import "./ContactInfo.css"
 import PrivacyPolicyModal from "../PrivacyPolicy/PrivacyPolicyModal"
 import { Employee, Property, SendMessage } from "../../Apis"
+import { useTranslation } from "react-i18next"
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY
 
@@ -17,6 +18,7 @@ type Props = {
 }
 
 const ContactInfo = ({ employee, property, textareaRef }: Props) => {
+    const { t } = useTranslation()
     const recaptchaRef = useRef<ReCAPTCHA>(null)
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
     const [IsModalOpen, setIsModalOpen] = useState<boolean>(false)
@@ -61,7 +63,7 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
         <>
             <div className="contact-info-container">
                 <div className="contact-info-card">
-                    <h1>Contact Info</h1>
+                    <h1>{t("Contact_info")}</h1>
                     <div className="contact-info-row">
                         <img src={employee.img} alt="agent" />
                         <div className="contact-info-text">
@@ -86,7 +88,7 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
                 </div>
 
                 <form className="contact-info-form" onSubmit={handleSubmit}>
-                    <h2 className="contact-info-title">Contact us about the property via email!</h2>
+                    <h2 className="contact-info-title">{t("Contact_us_email")}</h2>
 
                     <div className="contact-info-grid">
                         <input type="text" name="name" placeholder="Name*" required onChange={handleChange} />
@@ -124,14 +126,14 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
                             id="terms"
                         />
                         <label htmlFor="terms">
-                            Accept <button className="link-style" onClick={() => setIsModalOpen(true)} type="button">
-                                Privacy Policy
+                        {t("Accept")} <button className="link-style" onClick={() => setIsModalOpen(true)} type="button">
+                        {t("Privacy_policy")}
                             </button>.
                         </label>
 
                     </div>
 
-                    <button type="submit" className="contact-info-submit">Submit</button>
+                    <button type="submit" className="contact-info-submit">{t("Send")}</button>
                 </form>
             </div>
             {IsModalOpen && <PrivacyPolicyModal onClose={() => setIsModalOpen(false)} />}

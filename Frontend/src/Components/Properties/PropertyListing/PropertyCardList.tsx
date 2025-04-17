@@ -7,12 +7,14 @@ import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons"
 import { formatNumber } from "../../../Services/format"
 import { useState } from "react"
 import { Property } from "../../../Apis"
+import { useTranslation } from "react-i18next"
 
 type Props = {
     property: Property
 }
 
 const PropertyCardList = ({ property }: Props) => {
+    const { t } = useTranslation()
     const [isFavorite, setIsFavorite] = useState<boolean>(() => {
         const favorites: string[] = JSON.parse(localStorage.getItem("favorites") || "[]")
         return favorites.includes(property.id)
@@ -69,7 +71,7 @@ const PropertyCardList = ({ property }: Props) => {
                 <div className="property-list-type-price-container">
                     <div>
                         <div className="property-list-type">
-                            <p>{property.propertyType} / {property.propertyBuildType} </p>
+                            <p>{t(property.propertyType)} / {property.propertyBuildType} </p>
                         </div>
                         <p>{propertyDescritpion}</p>
                     </div>
@@ -79,15 +81,15 @@ const PropertyCardList = ({ property }: Props) => {
                 </div>
                 <div className="property-list-features">
                     <div className="property-list-box">
-                        <p className="feature-label">SIZE</p>
+                        <p className="feature-label">{t("SIZE")}</p>
                         <p className="feature-value">{property.floorArea}m²</p>
                     </div>
                     <div className="property-list-box">
-                        <p className="feature-label">FLOOR</p>
-                        <p className="feature-value">{property.floor}</p>
+                        {property.propertyType == "House" ? <p className="feature-label">{t("PARCEL")}</p> : <p className="feature-label">{t("FLOOR")}</p>}
+                        {property.propertyType == "House" ? <p className="feature-value">{property.parcel}</p> : <p className="feature-value">{property.floor}</p>}
                     </div>
                     <div className="property-list-box">
-                        <p className="feature-label">ROOM</p>
+                        <p className="feature-label">{t("ROOM")}</p>
                         <p className="feature-value">{property.rooms}</p>
                     </div>
                     <FontAwesomeIcon onClick={handleFavorite} icon={isFavorite ? faHeartSolid : faHeartRegular} className={`list-heart ${isFavorite ? "favorite" : ""}`} size="2x" />

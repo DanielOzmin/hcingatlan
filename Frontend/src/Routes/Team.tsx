@@ -6,10 +6,12 @@ import "./RoutesCSS/Team.css"
 import Highlight from "../Components/DefaultHighLight/Highlights"
 import { useEffect, useState } from "react"
 import { Employee, fetchAllEmployee } from "../Apis"
+import { useTranslation } from "react-i18next"
 
 const Team = () => {
     const { id } = useParams()
-    const [employees, setEmployees] = useState<Employee[]>([]) 
+    const [employees, setEmployees] = useState<Employee[]>([])
+    const { t } = useTranslation() 
 
     useEffect(()=>{
         
@@ -20,7 +22,7 @@ const Team = () => {
     return (
         <>
             <Header />
-            <Highlight title="Team" />
+            <Highlight title={t("Team")} />
             {id ? <Outlet /> :
                 <div className="team-content-container">
                     {employees.map((employee, index) =>

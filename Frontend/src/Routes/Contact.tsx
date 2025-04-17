@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next"
 import ContactForm from "../Components/Contact/ContactForm"
 import ContactMainInfo from "../Components/Contact/ContactMainInfo"
 import ReportAndCompanyInfo from "../Components/Contact/ReportAndCompanyInfo"
@@ -7,10 +8,11 @@ import Header from "../Components/Header/Header"
 
 
 const Contact = () => {
+    const { t } = useTranslation()
     return (
         <>
             <Header/>
-            <Highlight title="Contact" />
+            <Highlight title={t("Contact")} />
             <ContactMainInfo/>
             <ReportAndCompanyInfo/>
             <ContactForm/>

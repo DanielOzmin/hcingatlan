@@ -1,53 +1,45 @@
+import { useTranslation } from "react-i18next"
 import "./CareerDetails.css"
 
 const CareerDetails = () => {
+    const { t } = useTranslation()
     return (
         <div className="career-container">
-            <h1 className="career-title">KARRIER</h1>
-            <div className="career-subtitle">Csatlakozz egy fiatalos, lendületes értékesítő csapathoz.</div>
+            <h1 className="career-title">{t("career_title")}</h1>
+            <div className="career-subtitle">{t("career_subtitle")}</div>
 
             <div className="career-highlight-box">
-                <img src="/CareersPic.jpg" alt="Career Team" />
+                <img src="/CareersPic.jpg" alt={t("career_image_alt")} />
             </div>
-            <p className="career-family-phrase">Legyél kis "családunk" tagja.</p>
+            <p className="career-family-phrase">{t("career_family_phrase")}</p>
 
-            <p className="career-intro">
-                Azonnali kezdéssel ingatlanközvetítő kollégákat keresünk budapesti ingatlanok értékesítéséhez.
-            </p>
+            <p className="career-intro">{t("career_intro")}</p>
 
-            <h3>Téged keresünk:</h3>
+            <h3>{t("you_we_seek")}</h3>
             <ul>
-                <li>ha a jelenlegi fizetéseddel nem vagy megelégedve és valóban átlag feletti jövedelemre vágysz,</li>
-                <li>ha szereted az igazi kihívást,</li>
-                <li>ha csapatjátékos vagy,</li>
-                <li>ha kimondottan jól tudod kezelni a problémás helyzeteket,</li>
-                <li>ha minimum felhasználói szinten boldogulsz a számítógéppel.</li>
+                <li>{t("condition_1")}</li>
+                <li>{t("condition_2")}</li>
+                <li>{t("condition_3")}</li>
+                <li>{t("condition_4")}</li>
+                <li>{t("condition_5")}</li>
             </ul>
 
-            <h3>Nem téged keresünk:</h3>
+            <h3>{t("not_you_we_seek")}</h3>
             <ul>
-                <li>ha fontos számodra a fix átlag jövedelem,</li>
-                <li>ha a pihenés sokkal fontosabb mint az egzisztenciád,</li>
-                <li>ha a hétvégédet semmi áron nem áldoznád fel,</li>
-                <li>ha nem vagy nyitott mások tanácsaira,</li>
-                <li>ha nem szereted a csapatmunkát.</li>
+                <li>{t("exclude_1")}</li>
+                <li>{t("exclude_2")}</li>
+                <li>{t("exclude_3")}</li>
+                <li>{t("exclude_4")}</li>
+                <li>{t("exclude_5")}</li>
             </ul>
 
-            <p className="career-note">
-                Nagyon fontos, hogy ez egy olyan szakma ahol a belefektetett energiád hozza meg a gyümölcsét,
-                ezért olyan kollegákat keresünk akik teljes munkaidőben, elhivatottan, fő foglalkozásként tudják vállalni a munkát.
-            </p>
+            <p className="career-note">{t("career_note")}</p>
 
-            <p>
-                Nincs területi kötöttség, és rejtett költség sem. Munkádhoz biztosítunk telefont, számítógépet,
-                hirdetési portálokon való megjelenést, hirdetés kiemelési lehetőséget, és egyéb eszközöket ami a munkádhoz szükséges.
-                Elsősorban tapasztalt, számlaképes, bizonyítvánnyal rendelkező kollégák jelentkezését várjuk,
-                <strong> de ha még nincs tapasztalatod az sem jelent gondot, betanulási lehetőséget biztosítunk.</strong>
-            </p>
+            <p>{t("career_description")}</p>
 
             <p className="career-contact">
-                <strong>E-mail:</strong> <a href="mailto:info@example.hu">info@example.hu</a><br />
-                vagy telefonon a <strong><a href="tel:+0000000000">00000000000</a></strong> es telefonszámon.
+                <strong>{t("Email")}:</strong> <a href="mailto:info@example.hu">info@example.hu</a><br />
+                {t("or_call")} <strong><a href="tel:+0000000000">+00 00 000 0000</a></strong>
             </p>
         </div>
     )

@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react"
-
 import "./SelectDropDown.css"
+
+type OptionItem = {
+    label: string,
+    value: string
+}
 
 type Search = {
     selectedCategory: string,
@@ -19,7 +23,7 @@ type Search = {
 
 type Props = {
     title: string,
-    options: string[]
+    options: OptionItem[],
     setSearch: React.Dispatch<React.SetStateAction<Search>>,
     fieldKey: keyof Search
 }
@@ -28,7 +32,6 @@ const SelectDropDown = ({ title, options, setSearch, fieldKey }: Props) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [selectedValue, setSelectedValue] = useState<string>("")
     const dropdownRef = useRef<HTMLDivElement>(null)
-
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -42,31 +45,33 @@ const SelectDropDown = ({ title, options, setSearch, fieldKey }: Props) => {
         }
     }, [])
 
-    const toggleOption = (option: string) => {
-        const isReset = selectedValue === option
-        const newValue = isReset ? "" : option
+    const toggleOption = (value: string) => {
+        const isReset = selectedValue === value
+        const newValue = isReset ? "" : value
 
-        setSelectedValue(newValue);
-        setIsOpen(false);
+        setSelectedValue(newValue)
+        setIsOpen(false)
 
         setSearch(prevSearch => ({
             ...prevSearch,
             [fieldKey]: fieldKey === "loan"
-                ? (isReset ? [] : [option])
-                : newValue
+                ? (isReset ? [] : [value])
+                : value
         }))
     }
 
     return (
         <div className="select-dropdown-container" ref={dropdownRef}>
             <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
-                {selectedValue == "" ? title : selectedValue}
+                {selectedValue === "" 
+                    ? title 
+                    : options.find(o => o.value === selectedValue)?.label}
             </button>
             {isOpen && (
                 <div className="select-dropdown-menu">
                     {options.map((option, index) => (
-                        <div key={index} className="select-dropdown-item" onClick={() => toggleOption(option)}>
-                            <span>{option}</span>
+                        <div key={index} className="select-dropdown-item" onClick={() => toggleOption(option.value)}>
+                            <span>{option.label}</span>
                         </div>
                     ))}
                 </div>

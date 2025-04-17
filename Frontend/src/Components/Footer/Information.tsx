@@ -1,15 +1,14 @@
 import "./Footer.css"
 
-const Information = () => {
+const Information = ({t} :any) => {
     return (
         <div className="footer-section">
             <img src="/logo.gif" alt="Company Logo" className="footer-logo" />
-            <p>Our office hours:</p>
-            <p>Mon-Fri: 10:00-16:00 (Phone NON-STOP)</p>
-            <p>Sat-Sun: CLOSED (Phone NON-STOP)</p>
+            <p>{t("Our_office_hours")}:</p>
+            <p>{t("Mon_fri")}</p>
+            <p>{t("Sat_sun")}</p>
             <p>
-                Please note that property visits on weekends require prior phone
-                arrangement with the property owner.
+                {t("Footer_description")}
             </p>
         </div>
     )

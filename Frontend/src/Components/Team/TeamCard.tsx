@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 
 import "./TeamCard.css"
 import { Employee } from "../../Apis"
+import { useTranslation } from "react-i18next"
 
 type Props = {
     employee: Employee
@@ -9,6 +10,7 @@ type Props = {
 
 const TeamCard = ({employee}: Props) => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     if(!employee) return
 
@@ -30,17 +32,17 @@ const TeamCard = ({employee}: Props) => {
                 <p>{employee.position}</p>
                 <div className="team-card-info">
                     <div className="team-card-info-phone">
-                        <label>Phone: </label>
+                        <label>{t("Phone")}: </label>
                         <span>{employee.phone}</span>
                     </div>
                     <div className="team-card-info-email">
-                        <label>Email: </label>
+                        <label>{t("Email")}: </label>
                         <span>{employee.email}</span>
                     </div>
                 </div>
                 <div className="team-card-buttons">
-                    <button className="team-card-introducing-button" onClick={()=>handleIntoduceClick(employee.publicId,employee.name)}>Introducing</button>
-                    {employee.properties != undefined && employee.properties?.length > 0 && <button className="team-card-properties-button" onClick={()=>handlePropertiesClick(employee.publicId)}>Properties ({employee.properties?.length})</button>}
+                    <button className="team-card-introducing-button" onClick={()=>handleIntoduceClick(employee.publicId,employee.name)}>{t("Introducing")}</button>
+                    {employee.properties != undefined && employee.properties?.length > 0 && <button className="team-card-properties-button" onClick={()=>handlePropertiesClick(employee.publicId)}>{t("Properties")} ({employee.properties?.length})</button>}
                 </div>
 
             </div>

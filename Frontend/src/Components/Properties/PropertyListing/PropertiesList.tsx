@@ -7,6 +7,7 @@ import PropertyCardList from "./PropertyCardList"
 import FilterDropdown from "./FilterDropdown"
 import { useParams } from "react-router-dom"
 import { Employee, Property, fetchEmployeeById, fetchProperties } from "../../../Apis"
+import { useTranslation } from "react-i18next"
 
 
 type View = "grid" | "list"
@@ -25,6 +26,7 @@ const PropertiesList = ({ properties, setProperties, id }: Props) => {
   const [orderBy, setOrderBy] = useState<OrderBy>("dateUp")
   const [employee, setEmployee] = useState<Employee>()
   const { employeeId, count, city, district } = useParams<{ employeeId?: string, count?: string, city?: string, district?: string }>()
+  const { t } = useTranslation()
 
   useEffect(() => {
 
@@ -89,10 +91,10 @@ const PropertiesList = ({ properties, setProperties, id }: Props) => {
     <div className="list-container">
       <div className="list-header">
         <div>
-          <h1>Properties: {filteredProperties.length} found.</h1>
+          <h1>{t("Properties")}: {filteredProperties.length} {t("Found")}.</h1>
         </div>
         <div className="list-filters">
-          <div>Order by:
+          <div>{t("Order_by")}:
             <FilterDropdown setOrderBy={setOrderBy} />
           </div>
           <FaTh size={24} className="grid-icon" onClick={() => setView("grid")} />

@@ -4,12 +4,14 @@ import Highlight from "../Components/DefaultHighLight/Highlights"
 import "./RoutesCSS/Gallery.css"
 import { useState } from "react"
 import GalleryModal from "../Components/GalleryComponent/GalleryModal"
+import { useTranslation } from "react-i18next"
 
 const images = ["/office1.jpeg", "/office2.jpeg", "/office3.jpeg", "/office4.jpeg", "/office5.jpeg",
     "/office6.jpeg", "/office7.jpeg", "/office8.jpeg", "/office9.jpeg", "/office10.jpeg", "/office11.jpeg",]
 
 const Gallery = () => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+    const { t } = useTranslation()
 
     const openModal = (index: number) => {
         setSelectedIndex(index)
@@ -34,7 +36,7 @@ const Gallery = () => {
     return (
         <>
             <Header />
-            <Highlight title="Gallery" />
+            <Highlight title={t("Gallery")} />
             <div className="gallery-content-container">
                 {selectedIndex != null && <GalleryModal
                     closeModal={closeModal}
@@ -43,7 +45,7 @@ const Gallery = () => {
                     selectedIndex={selectedIndex}
                     images={images}
                 />}
-                <h1>Our Office</h1>
+                <h1>{t("Our_office")}</h1>
                 <div className="gallery-section">
                     <h2>City, zipcode, street, num</h2>
                     <div className="gallery-grid">

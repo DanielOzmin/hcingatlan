@@ -1,18 +1,18 @@
 import "./Footer.css"
 
-const SiteMap = () => {
+const SiteMap = ({t} :any) => {
     return(
         <div className="footer-section">
-            <h4>Site Map</h4>
+            <h4>{t("Site_map")}</h4>
             <ul>
-                <li><span className="arrow">›</span><a href="/">Home</a></li>
-                <li><span className="arrow">›</span><a href="/properties">Properties</a></li>
-                <li><span className="arrow">›</span><a href="/team">Team</a></li>
-                <li><span className="arrow">›</span><a href="/gallery">Galery</a></li>
-                <li><span className="arrow">›</span><a href="/about-us">About</a></li>
-                <li><span className="arrow">›</span><a href="/contact">Contact</a></li>
-                <li><span className="arrow">›</span><a href="/reviews">Reviews</a></li>
-                <li><span className="arrow">›</span><a href="/careers">Careers</a></li>
+                <li><span className="arrow">›</span><a href="/">{t("Home")}</a></li>
+                <li><span className="arrow">›</span><a href="/properties">{t("Properties")}</a></li>
+                <li><span className="arrow">›</span><a href="/team">{t("Team")}</a></li>
+                <li><span className="arrow">›</span><a href="/gallery">{t("Gallery")}</a></li>
+                <li><span className="arrow">›</span><a href="/about-us">{t("About")}</a></li>
+                <li><span className="arrow">›</span><a href="/contact">{t("Contact")}</a></li>
+                <li><span className="arrow">›</span><a href="/reviews">{t("Reviews")}</a></li>
+                <li><span className="arrow">›</span><a href="/careers">{t("Careers")}</a></li>
             </ul>
         </div>
     )

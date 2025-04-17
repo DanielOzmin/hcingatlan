@@ -15,7 +15,7 @@ This site acts as the **public-facing platform** of the agency. A separate **CRM
 
 ## 📋 Backlog & Project Planning
 
-You can follow the development progress and upcoming features in our [📌 Project Backlog](https://github.com/DanielOzmin/projects/2/views/1).
+You can follow the development progress and upcoming features in our [📌 Project Backlog](https://github.com/users/DanielOzmin/projects/2).
 
 
 ## 📸 Pages & Routes

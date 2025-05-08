@@ -24,7 +24,7 @@ const EmployeeCard = ({ employee, textareaRef }: Props) => {
 
     return (
         <div className="customer-card-container">
-            <h2>{t("Our_sales_associate")}</h2>
+            <h2 className="text-lg font-bold mb-3">{t("Our_sales_associate")}</h2>
             <div className="customer-line"></div>
             <img src={employee.img} alt="Customer image" />
             <h3>{employee.name}</h3>

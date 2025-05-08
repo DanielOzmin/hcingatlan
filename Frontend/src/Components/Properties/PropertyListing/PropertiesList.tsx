@@ -6,7 +6,7 @@ import { FaTh, FaList } from "react-icons/fa"
 import PropertyCardList from "./PropertyCardList"
 import FilterDropdown from "./FilterDropdown"
 import { useParams } from "react-router-dom"
-import { Employee, Property, fetchEmployeeById, fetchProperties } from "../../../Apis"
+import { Employee, Property, fetchEmployeeById } from "../../../Apis"
 import { useTranslation } from "react-i18next"
 
 
@@ -14,12 +14,11 @@ type View = "grid" | "list"
 type OrderBy = "dateUp" | "dateDown" | "priceUp" | "priceDown"
 
 type Props = {
-  setProperties: React.Dispatch<React.SetStateAction<Property[]>>
   properties: Property[]
   id?: string
 }
 
-const PropertiesList = ({ properties, setProperties, id }: Props) => {
+const PropertiesList = ({ properties, id }: Props) => {
   const [current, setCurrent] = useState<Property[]>([])
   const [filteredProperties, setFilteredProperties] = useState<Property[]>([])
   const [view, setView] = useState<View>("grid")
@@ -28,13 +27,6 @@ const PropertiesList = ({ properties, setProperties, id }: Props) => {
   const { employeeId, count, city, district } = useParams<{ employeeId?: string, count?: string, city?: string, district?: string }>()
   const { t } = useTranslation()
   
-
-  useEffect(() => {
-
-    fetchProperties(setProperties)
-
-  }, [])
-
   useEffect(() => {
 
     if (employeeId) {
@@ -91,14 +83,16 @@ const PropertiesList = ({ properties, setProperties, id }: Props) => {
     <div className="list-container">
       <div className="list-header">
         <div>
-          <h1>{t("Properties")}: {filteredProperties.length} {t("Found")}.</h1>
+          <h1 className="text-xl font-bold">{t("Properties")}: {filteredProperties.length} {t("Found")}.</h1>
         </div>
         <div className="list-filters">
-          <div>{t("Order_by")}:
+          <div className="flex gap-2"><h2 className="text-lg mt-2">{t("Order_by")}:</h2>
             <FilterDropdown setOrderBy={setOrderBy} />
           </div>
-          <FaTh size={24} className="grid-icon" onClick={() => setView("grid")} />
-          <FaList size={24} className="list-icon" onClick={() => setView("list")} />
+          <div className="flex gap-4 mt-1">
+          <FaTh size={30} className="grid-icon" onClick={() => setView("grid")} />
+          <FaList size={30} className="list-icon" onClick={() => setView("list")} />
+          </div>
         </div>
       </div>
 

@@ -62,13 +62,13 @@ const Header = () => {
             </div>
 
 
-            <header className="block md:hidden bg-yellow-500 p-4 flex justify-between items-center">
+            <header className="block md:hidden bg-black p-4 flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     <img src="/logo.gif" alt="Logo" className="h-10" />
                 </div>
                 <div className="flex items-center gap-4">
                     <Languange i18n={i18n} />
-                    <button onClick={toggleMenu} className="text-white text-xl">
+                    <button onClick={toggleMenu} className="w-10 h-10 flex items-center justify-center text-white text-2xl border-2 border-yellow-600 rounded-md hover:bg-yellow-400 hover:text-black transition">
                         ☰
                     </button>
                 </div>

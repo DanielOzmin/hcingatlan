@@ -60,7 +60,6 @@ const PropertiesSearchBox = ({ setProperties }: Props) => {
 
     const handleSearchClick = () => {
         fetchPropertiesBySearch(setProperties, search)
-        console.log(search)
     }
 
     const homeTypes = [

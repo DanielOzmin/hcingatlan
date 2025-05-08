@@ -43,9 +43,3 @@
     z-index: 2; 
     width: 100%;
 }
-
-@media (max-width: 900px) {
-    .team-content-container {
-        grid-template-columns: 1fr;
-    }
-}

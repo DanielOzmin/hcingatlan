@@ -3,7 +3,7 @@ import PropertiesSearchBar from "./SearchBarInProperties/PropertiesSearchBox"
 import "./PropertiesMain.css"
 import LastSeen from "./PropertiesLastSeen/LastSeen"
 import { Employee, Property, fetchEmployeeById, fetchProperties } from "../../Apis"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import PropertyCard from "../Home/Content/ProperyCard"
 import Pagination from "./PropertyListing/Pagination"
 import { useTranslation } from "react-i18next"
@@ -19,7 +19,7 @@ const PropertiesMain = () => {
 
     const selectedCategory = searchParams.get("category") ?? ""
     const selectedType = searchParams.getAll("type")
-    const location = searchParams.getAll("location")
+    const location = searchParams.getAll("loc")
     const loan = searchParams.getAll("loan")
     const typedId = searchParams.get("typedId") ?? ""
     const minPrice = searchParams.get("minPrice") ? Number(searchParams.get("minPrice")) : null
@@ -28,7 +28,13 @@ const PropertiesMain = () => {
     const maxFloorArea = searchParams.get("maxFloorArea") ? Number(searchParams.get("maxFloorArea")) : null
     const minRoomNumber = searchParams.get("minRoomNumber") ? Number(searchParams.get("minRoomNumber")) : null
     const maxRoomNumber = searchParams.get("maxRoomNumber") ? Number(searchParams.get("maxRoomNumber")) : null
-    console.log(selectedCategory,selectedType,location,loan,typedId,minPrice,maxPrice,minFloorArea,maxFloorArea,minRoomNumber,maxRoomNumber)
+    
+
+    useEffect(() => {
+ 
+        fetchProperties(setProperties)
+    
+    }, []) 
 
     useEffect(() => {
         if (employeeId) {
@@ -45,67 +51,54 @@ const PropertiesMain = () => {
         }
     }, [employee])
 
-    
+    const filtered = useMemo(()=>{
 
-    //useEffect(() => {
         let filtered = properties
-        console.log(filtered)
       
         if (selectedCategory) {
-          filtered = filtered.filter(p => p.transactionType === selectedCategory) // good
+          filtered = filtered.filter(p => p.transactionType === selectedCategory)
         }
         if (selectedType.length > 0) {
-          filtered = filtered.filter(p => selectedType.includes(p.propertyType)) // good
+          filtered = filtered.filter(p => selectedType.includes(p.propertyType)) 
         }
         if (location.length > 0) {
-          filtered = filtered.filter(p => location.includes(p.city)) // nooo empty array
+            location.forEach((loc)=>{
+                if(loc.includes("District")){
+                    filtered = filtered.filter(p => location.includes(p.district))  
+                }else{
+                    filtered = filtered.filter(p => location.includes(p.city)) 
+                }
+            })
         }
         if (loan.includes("CSOK PLUS: Yes")) {
-          filtered = filtered.filter(p => p.csok === true) // good
+          filtered = filtered.filter(p => p.csok === true)
         }
         if (typedId) {
-          filtered = filtered.filter(p => p.propertyId === typedId) // good
+          filtered = filtered.filter(p => p.propertyId === typedId) 
         }
+        let multiplier = selectedCategory == "Sale" ? 1000000 : 1000
         if (minPrice !== null) {
-          filtered = filtered.filter(p => p.price >= minPrice) // missing multiplier
+          filtered = filtered.filter(p => p.price >= minPrice * multiplier)
         }
         if (maxPrice !== null) {
-          filtered = filtered.filter(p => p.price <= maxPrice) // missing multiplier
+          filtered = filtered.filter(p => p.price <= maxPrice * multiplier) 
         }
         if (minFloorArea !== null) {
-          filtered = filtered.filter(p => p.floorArea >= minFloorArea) // good 
+          filtered = filtered.filter(p => p.floorArea >= minFloorArea)
         }
         if (maxFloorArea !== null) {
-          filtered = filtered.filter(p => p.floorArea <= maxFloorArea) // good
+          filtered = filtered.filter(p => p.floorArea <= maxFloorArea) 
         }
         if (minRoomNumber !== null) {
-          filtered = filtered.filter(p => p.rooms >= minRoomNumber) // good
+          filtered = filtered.filter(p => p.rooms >= minRoomNumber) 
         }
         if (maxRoomNumber !== null) {
-          filtered = filtered.filter(p => p.rooms <= maxRoomNumber) // good
+          filtered = filtered.filter(p => p.rooms <= maxRoomNumber) 
         }
+        console.log(filtered)
+        return filtered
+       },[properties])
         
-        
-        
-        
-        
-      
-    //     setCurrent(filtered)
-    //   }, [
-    //     selectedCategory,
-    //     selectedType,
-    //     location,
-    //     loan,
-    //     typedId,
-    //     minPrice,
-    //     maxPrice,
-    //     minFloorArea,
-    //     maxFloorArea,
-    //     minRoomNumber,
-    //     maxRoomNumber,
-    //     buildType,
-    //     properties
-    //   ])
 
 
     const lastSeenRow = localStorage.getItem("lastSeen")
@@ -120,13 +113,13 @@ const PropertiesMain = () => {
                         {lastSeenIds.length > 0 && <LastSeen lastSeenIds={lastSeenIds} />}
                     </div>
 
-                    <PropertiesList properties={properties} setProperties={setProperties} />
+                    <PropertiesList properties={properties} />
                 </div>
             </div>
 
             <div className="block md:hidden">
                 <div className="w-full">
-                    <h1 className="text-lg font-bold m-4">{t("Properties")}: {properties.length} {t("Found")}.</h1>
+                    <h1 className="text-lg font-bold m-4">{t("Properties")}: {filtered.length} {t("Found")}.</h1>
                     <div className="flex flex-wrap justify-center p-4">
                         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4 justify-items-center p-4">
                             {current.map((prop, index) =>
@@ -134,7 +127,7 @@ const PropertiesMain = () => {
                         </div>
                     </div>
                     <div className="mb-4">
-                        <Pagination current={properties} setCurrent={setCurrent} />
+                        <Pagination current={filtered} setCurrent={setCurrent} />
                     </div>
                 </div>
             </div>

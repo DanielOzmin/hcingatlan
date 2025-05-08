@@ -23,9 +23,11 @@ const LastSeen = ({ lastSeenIds }: Props) => {
 
     return (
         <div className="lastseen-properties-container">
-            <h2>{t("Last_seen")}</h2>
+            
+            <h2 className="text-center mb-8 text-2xl font-bold" >{t("Last_seen")}</h2>
             {lastSeenProperties.map((property, index) =>
                 <LastSeenPropertiesCard key={index} property={property} />)}
+         
         </div>
     )
 }

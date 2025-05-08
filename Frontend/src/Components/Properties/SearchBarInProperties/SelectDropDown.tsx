@@ -51,13 +51,18 @@ const SelectDropDown = ({ title, options, setSearch, fieldKey }: Props) => {
 
         setSelectedValue(newValue)
         setIsOpen(false)
-
-        setSearch(prevSearch => ({
-            ...prevSearch,
-            [fieldKey]: fieldKey === "loan"
-                ? (isReset ? [] : [value])
-                : value
-        }))
+        if (fieldKey === "loan") {
+            setSearch(prevSearch => ({
+                ...prevSearch,
+                [fieldKey]: isReset ? [] : [value]
+            }))
+        } else {
+            setSearch(prevSearch => ({
+                ...prevSearch,
+                [fieldKey]: newValue
+            }))
+        }
+        
     }
 
     return (

@@ -64,7 +64,8 @@ export type Property = {
     featured?: boolean,
     employeeId: string,
     img?: string[],
-    parcel?: number
+    parcel?: number,
+    csok: boolean
 }
 
 export type Search = {

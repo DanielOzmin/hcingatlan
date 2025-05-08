@@ -1,6 +1,6 @@
 .property-dropdown-container {
     position: relative;
-    width: 100%; /* Illeszkedjen a szülőelemhez */
+    width: 100%;
 }
 
 .property-dropdown {
@@ -24,7 +24,7 @@
 }
 
 .property-dropdown button::after {
-    content: "▼"; /* Kis nyíl a jobb oldalon */
+    content: "▼";
     font-size: 11px;
     color: black;
 }

@@ -27,6 +27,7 @@ const PropertiesList = ({ properties, setProperties, id }: Props) => {
   const [employee, setEmployee] = useState<Employee>()
   const { employeeId, count, city, district } = useParams<{ employeeId?: string, count?: string, city?: string, district?: string }>()
   const { t } = useTranslation()
+  
 
   useEffect(() => {
 
@@ -84,8 +85,7 @@ const PropertiesList = ({ properties, setProperties, id }: Props) => {
 
     setCurrent(filtered)
     setFilteredProperties(filtered)
-  }, [orderBy, properties, employeeId, count, city, district])
-
+  }, [orderBy, properties, employee, employeeId, count, city, district])
 
   return (
     <div className="list-container">

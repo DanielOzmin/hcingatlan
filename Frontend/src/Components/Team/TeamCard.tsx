@@ -33,11 +33,11 @@ const TeamCard = ({employee}: Props) => {
                 <div className="team-card-info">
                     <div className="team-card-info-phone">
                         <label>{t("Phone")}: </label>
-                        <span>{employee.phone}</span>
+                        <span><a href={`tel:${employee.phone}`}>{employee.phone}</a></span>
                     </div>
                     <div className="team-card-info-email">
                         <label>{t("Email")}: </label>
-                        <span>{employee.email}</span>
+                        <span><a href={`mailto:${employee.email}`}>{employee.email}</a></span>
                     </div>
                 </div>
                 <div className="team-card-buttons">

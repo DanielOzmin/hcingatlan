@@ -22,7 +22,7 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
     const recaptchaRef = useRef<ReCAPTCHA>(null)
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
     const [IsModalOpen, setIsModalOpen] = useState<boolean>(false)
-    if(!employee) return
+    if (!employee) return
     const [formData, setFormData] = useState({
         employeeId: `${employee.id}`,
         name: "",
@@ -53,7 +53,7 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
         if (!recaptchaToken) {
             return alert("pls confirm you are not a robot!")
         }
-        
+
         const data = { ...formData, recaptchaToken }
 
         SendMessage(data)
@@ -77,7 +77,7 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
                             </div>
                             <div className="contact-info-details">
                                 <FontAwesomeIcon icon={faPhone} />
-                                <span>{employee.phone}</span>
+                                <span><a href={`tel:${employee.phone}`}>{employee.phone}</a></span>
                             </div>
                             <div className="contact-info-details">
                                 <FontAwesomeIcon icon={falEnvelopeRegular} />
@@ -104,16 +104,17 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
                         onChange={handleChange}
                         className="contact-info-textarea"
                     />
-
-                    <div className="contact-info-recaptcha">
-                        <ReCAPTCHA
-                            sitekey={RECAPTCHA_SITE_KEY}
-                            onChange={(token) => {
-                                console.log("ReCAPTCHA token:", token);
-                                setRecaptchaToken(token);
-                            }}
-                            ref={recaptchaRef}
-                        />
+                    <div className="scale-[0.83] origin-top-left sm:scale-100">
+                        <div className="contact-info-recaptcha">
+                            <ReCAPTCHA
+                                sitekey={RECAPTCHA_SITE_KEY}
+                                onChange={(token) => {
+                                    console.log("ReCAPTCHA token:", token);
+                                    setRecaptchaToken(token);
+                                }}
+                                ref={recaptchaRef}
+                            />
+                        </div>
                     </div>
 
                     <div className="contact-info-terms">
@@ -125,9 +126,9 @@ const ContactInfo = ({ employee, property, textareaRef }: Props) => {
                             required
                             id="terms"
                         />
-                        <label htmlFor="terms">
-                        {t("Accept")} <button className="link-style" onClick={() => setIsModalOpen(true)} type="button">
-                        {t("Privacy_policy")}
+                        <label htmlFor="terms" className="text-lg text-gray-700 leading-relaxed">
+                            {t("Accept")} <button className="link-style" onClick={() => setIsModalOpen(true)} type="button">
+                                {t("Privacy_policy")}
                             </button>.
                         </label>
 

@@ -35,6 +35,7 @@ const LastSeenHome = () => {
     }
 
     return (
+        <div className="hidden md:block">
         <div className="last-seen-home">
             <h1>{t("Last_seen")}</h1>
             <div className="last-seen-carousel">
@@ -46,6 +47,7 @@ const LastSeenHome = () => {
                 </div>
                 <button className="nav-button right" onClick={handleNext} disabled={startIndex + cardsPerShow >= lastSeenProperties.length}>{'>'}</button>
             </div>
+        </div>
         </div>
     )
 }

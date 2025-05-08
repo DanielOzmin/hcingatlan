@@ -1,6 +1,5 @@
 import { FacebookShareButton, TwitterShareButton, LinkedinShareButton, WhatsappShareButton, EmailShareButton } from "react-share"
 import { FacebookIcon, TwitterIcon, LinkedinIcon, WhatsappIcon, EmailIcon } from "react-share"
-import ShareLikePrint from "./ShareLikePrint.css"
 
 const ShareComponent = () => {
     const shareUrl = window.location.href

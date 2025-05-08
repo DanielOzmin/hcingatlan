@@ -4,7 +4,6 @@ import AgentCard from "../Components/AboutUs/AgentCard"
 import IntroductionHighLight from "../Components/AboutUs/IntroductionHighLight"
 import Highlight from "../Components/DefaultHighLight/Highlights"
 import Header from "../Components/Header/Header"
-import "./RoutesCSS/AboutUs.css"
 import { Employee, fetchAllEmployee } from "../Apis"
 import { useTranslation } from "react-i18next"
 
@@ -24,9 +23,12 @@ const AboutUs = () => {
             <Highlight title={t("About")} />
             <AboutUsFixIntroduction />
             <IntroductionHighLight />
-            <div className="agent-list">
+            
+            <div className="w-full flex justify-center px-4">
+            <div className="grid grid-cols-[repeat(auto-fit,_minmax(280px,_1fr))] gap-6 p-4 max-w-screen-xl w-full justify-items-center">
                 {employees.map((employee, index) =>
                     <AgentCard key={index} agent={employee} />)}
+            </div>
             </div>
         </>
     )

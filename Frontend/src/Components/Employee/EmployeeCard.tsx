@@ -34,11 +34,11 @@ const EmployeeCard = ({ employee, textareaRef }: Props) => {
             </div>
             <div className="customer-card-details">
                 <FontAwesomeIcon icon={faPhone} />
-                <span>{employee.phone}</span>
+                <span><a href={`tel:${employee.phone}`}>{employee.phone}</a></span>
             </div>
             <div className="customer-card-details">
                 <FontAwesomeIcon icon={falEnvelopeRegular} />
-                <span>{employee.email}</span>
+                <span><a href={`mailto:${employee.email}`}>{employee.email}</a></span>
             </div>
             <button onClick={handleJumpToTextarea}>{t("Send_message")}</button>
         </div>

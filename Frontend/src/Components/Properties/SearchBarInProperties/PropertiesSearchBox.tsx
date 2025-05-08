@@ -64,10 +64,10 @@ const PropertiesSearchBox = ({ setProperties }: Props) => {
     }
 
     const homeTypes = [
-        { label: t("Apartment"), value: "apartment" },
-        { label: t("House"), value: "house" },
-        { label: t("Land"), value: "land" },
-        { label: t("Rental space"), value: "rental_space" },
+        { label: t("Apartment"), value: "Apartman" },
+        { label: t("House"), value: "House" },
+        { label: t("Land"), value: "Land" },
+        { label: t("Rental space"), value: "Rental space" },
     ]
 
     return (
@@ -95,7 +95,7 @@ const PropertiesSearchBox = ({ setProperties }: Props) => {
                 />
 
                 <SelectDropDown
-                    title={`--- ${t("New_Resale")}`}
+                    title={`--- ${t("New_Resale")} ---`}
                     options={[
                         { label: t("New_construction"), value: "New construction" },
                         { label: t("Resale"), value: "Resale" }

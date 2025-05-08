@@ -28,21 +28,21 @@ const router = createBrowserRouter([
     element: <Properties />,
     children: [
       {
-        path: ":details/:id",
-        element: <PropertyDetails />
-      },
-      {
-        path: ":employeeId",
-        element: <Properties />
-      },
-      {
         path: "favorites/:count",
         element: <Properties/>
       },
       {
         path: `search/:city/:district`,
         element: <Properties/>
-      }
+      },
+      {
+        path: ":details/:id",
+        element: <PropertyDetails />
+      },
+      {
+        path: "employee/:employeeId",
+        element: <Properties />
+      },
     ]
   },
   {

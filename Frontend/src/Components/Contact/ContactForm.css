@@ -58,11 +58,6 @@
     flex-shrink: 0;
 }
 
-.terms label {
-    cursor: pointer;
-    line-height: 1.5;
-    font-size: 22px;
-}
 
 .link-style {
     background: none;

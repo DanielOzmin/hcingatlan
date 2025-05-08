@@ -56,7 +56,7 @@ const ContactForm = () => {
                     <input type="tel" name="phone" placeholder="Phone*" required onChange={handleChange} />
                     <textarea name="message" placeholder="Your message" rows={4} onChange={handleChange} required />
                 </div>
-
+                <div className="scale-[0.83] origin-top-left sm:scale-100">
                 <div className="recaptcha-container">
                     <ReCAPTCHA
                         sitekey={RECAPTCHA_SITE_KEY}
@@ -66,6 +66,7 @@ const ContactForm = () => {
                         }}
                         ref={recaptchaRef}
                     />
+                </div>
                 </div>
 
 
@@ -78,7 +79,7 @@ const ContactForm = () => {
                         required
                         id="terms"
                     />
-                    <label htmlFor="terms">
+                    <label htmlFor="terms" className="text-lg text-gray-700 leading-relaxed">
                         {t("Accept")} <button className="link-style" onClick={() => setIsModalOpen(true)} type="button">
                         {t("Privacy_policy")}
                         </button>.

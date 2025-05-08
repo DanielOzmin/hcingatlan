@@ -3,8 +3,9 @@ import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api"
 import { geocodeAddress } from "../../Services/geocode"
 
 const containerStyle = {
-  width: "100%",
-  height: "400px"
+  width: "70%",
+  height: "400px",
+  margin: "auto"
 }
 
 type Props = {

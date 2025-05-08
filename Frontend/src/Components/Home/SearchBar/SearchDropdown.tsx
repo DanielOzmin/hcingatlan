@@ -7,13 +7,14 @@ type OptionItem = {
 }
 
 type Props = {
+    title: string,
     options: OptionItem[],
     selectedValues: string[],
     setSelectedValues: (values: string[]) => void,
     hasInput?: boolean,
 }
 
-const SearchDropdown = ({ options, selectedValues, setSelectedValues, hasInput }: Props) => {
+const SearchDropdown = ({title, options, selectedValues, setSelectedValues, hasInput }: Props) => {
     const [customInput, setCustomInput] = useState<string>("")
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const dropdownRef = useRef<HTMLDivElement>(null)
@@ -71,7 +72,7 @@ const SearchDropdown = ({ options, selectedValues, setSelectedValues, hasInput }
         )
 
     return (
-        <div className="dropdown-container" ref={dropdownRef}>
+        <div className="dropdown-container w-full md:w-[230px]" ref={dropdownRef}>
             <div className="dropdown">
                 <button onClick={() => setIsOpen(!isOpen)}>
                     {selectedValues.length > 0
@@ -79,7 +80,7 @@ const SearchDropdown = ({ options, selectedValues, setSelectedValues, hasInput }
                             .filter(opt => selectedValues.includes(opt.value))
                             .map(opt => opt.label)
                             .join(", ")
-                        : "Select..."}
+                        : title}
                 </button>
                 {isOpen && (
                     <div className="dropdown-menu">

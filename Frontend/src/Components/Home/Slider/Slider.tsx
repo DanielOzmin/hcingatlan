@@ -7,22 +7,24 @@ import "./Slider.css"
 
 const Slider = () => {
   return (
-    <div className="slider-container">
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={50}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-      >
-        <SwiperSlide>
-          <img src="/sliderpic1.jpeg" alt="Slider 1" className="slider-image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/sliderpic2.jpeg" alt="Slider 2" className="slider-image" />
-        </SwiperSlide>
-      </Swiper>
+    <div className="hidden md:block">
+      <div className="slider-container">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+        >
+          <SwiperSlide>
+            <img src="/sliderpic1.jpeg" alt="Slider 1" className="slider-image" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="/sliderpic2.jpeg" alt="Slider 2" className="slider-image" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   )
 }

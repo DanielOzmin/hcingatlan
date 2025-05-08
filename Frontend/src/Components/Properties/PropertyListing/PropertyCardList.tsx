@@ -92,7 +92,9 @@ const PropertyCardList = ({ property }: Props) => {
                         <p className="feature-label">{t("ROOM")}</p>
                         <p className="feature-value">{property.rooms}</p>
                     </div>
+                    <div className="list-icon">
                     <FontAwesomeIcon onClick={handleFavorite} icon={isFavorite ? faHeartSolid : faHeartRegular} className={`list-heart ${isFavorite ? "favorite" : ""}`} size="2x" />
+                    </div>
                 </div>
             </div>
         </div>

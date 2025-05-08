@@ -21,10 +21,10 @@ const HomeScreen = () => {
                 <Slider />
             </div>
             <div>
-                <SearchInHome setProperties={setProperties}/>
+                <SearchInHome setProperties={setProperties} />
             </div>
             <div>
-                <Content properties={properties} setProperties={setProperties}/>
+                <Content properties={properties} setProperties={setProperties} />
             </div>
             <div>
                 <PropertyHighLight />

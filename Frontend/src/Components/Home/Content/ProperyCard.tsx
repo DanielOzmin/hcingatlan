@@ -15,7 +15,7 @@ type Props = {
 
 const PropertyCard = ({ property }: Props) => {
     const navigate = useNavigate()
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     const [isFavorite, setIsFavorite] = useState<boolean>(() => {
         const favorites: string[] = JSON.parse(localStorage.getItem("favorites") || "[]")
         return favorites.includes(property.id)
@@ -92,14 +92,21 @@ const PropertyCard = ({ property }: Props) => {
                     <p className="feature-value">{property.floorArea}m²</p>
                 </div>
                 <div className="property-box">
-                    {property.propertyType == "House" ? <p className="feature-label">{t("PARCEL")}</p> : <p className="feature-label">{t("FLOOR")}</p> }
+                    {property.propertyType == "House" ? <p className="feature-label">{t("PARCEL")}</p> : <p className="feature-label">{t("FLOOR")}</p>}
                     {property.propertyType == "House" ? <p className="feature-value">{property.parcel}m²</p> : <p className="feature-value">{property.floor}</p>}
                 </div>
                 <div className="property-box">
                     <p className="feature-label">{t("ROOM")}</p>
                     <p className="feature-value">{property.rooms}</p>
                 </div>
-                <FontAwesomeIcon onClick={handleFavorite} icon={isFavorite ? faHeartSolid : faHeartRegular} className={`card-heart ${isFavorite ? "favorite" : ""}`} size="2x" />
+                <div className="list-icon">
+                    <FontAwesomeIcon
+                        onClick={handleFavorite}
+                        icon={isFavorite ? faHeartSolid : faHeartRegular}
+                        className={`card-heart ${isFavorite ? "favorite" : ""}`}
+                        size="2x"
+                    />
+                </div>
             </div>
 
         </div>
